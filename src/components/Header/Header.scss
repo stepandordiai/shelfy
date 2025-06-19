@@ -1,0 +1,20 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header__logo {
+	color: #000;
+	font-size: 1.5rem;
+}
+
+.header__cart {
+	position: relative;
+
+	p {
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

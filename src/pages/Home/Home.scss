@@ -1,0 +1,19 @@
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 50px;
+	width: 100%;
+}
+
+.card {
+	background: rgba(0, 0, 0, 0.052);
+	display: flex;
+	justify-content: flex-start;
+	padding-top: 10px;
+	align-items: center;
+	flex-direction: column;
+
+	img {
+		height: 50%;
+	}
+}
