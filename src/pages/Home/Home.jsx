@@ -3,7 +3,7 @@ import booksData from "./../../data/books-data.json";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const Home = ({ cart, addToCart }) => {
+const Home = ({ wish, cart, addToCart, addToWish }) => {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
@@ -14,7 +14,9 @@ const Home = ({ cart, addToCart }) => {
 		<>
 			<div className="grid">
 				{data.map((el, index) => {
+					// TODO:
 					const isInCart = cart.some((item) => item.id === el.id);
+					const isInWish = wish.some((item) => item.id === el.id);
 					return (
 						<div key={index} className="card">
 							<img height={200} src={el.img} alt="" />
@@ -22,6 +24,9 @@ const Home = ({ cart, addToCart }) => {
 							<p>{el.price}$</p>
 							<button onClick={() => addToCart(el)}>
 								{isInCart ? "In cart" : "Add to Cart"}
+							</button>
+							<button onClick={() => addToWish(el)}>
+								{isInWish ? "In wish" : "Add to Wish"}
 							</button>
 						</div>
 					);
