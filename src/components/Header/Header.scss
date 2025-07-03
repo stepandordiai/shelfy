@@ -1,6 +1,14 @@
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 60px;
+	background: #fff;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
 }
 
 .header__logo {
@@ -8,13 +16,47 @@
 	font-size: 1.5rem;
 }
 
+.header__right-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 25px;
+}
+
+.header__wish {
+	position: relative;
+
+	span {
+		position: absolute;
+		top: 0;
+		right: 0;
+		transform: translate(50%, -50%);
+		background: var(--accent-red);
+		width: 20px;
+		display: grid;
+		place-content: center;
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		color: #fff;
+		font-size: 0.8rem;
+	}
+}
+
 .header__cart {
 	position: relative;
 
-	p {
+	span {
 		position: absolute;
-		top: 60%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		top: 0;
+		right: 0;
+		transform: translate(50%, -50%);
+		background: var(--accent-red);
+		width: 20px;
+		display: grid;
+		place-content: center;
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		color: #fff;
+		font-size: 0.8rem;
 	}
 }
