@@ -1,19 +1,58 @@
 .grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 50px;
+	gap: 10px;
 	width: 100%;
+	padding: 70px 10px 10px 10px;
 }
 
 .card {
-	background: rgba(0, 0, 0, 0.052);
 	display: flex;
-	justify-content: flex-start;
-	padding-top: 10px;
-	align-items: center;
 	flex-direction: column;
+}
+
+.card__img-container {
+	background: rgba(0, 0, 0, 0.05);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	padding: 30px;
+}
+
+.btn-container {
+	display: flex;
+}
+
+.cart-btn {
+	width: 100%;
+	background: #000;
+	color: #fff;
+	padding: 10px;
+}
+
+.wish-btn {
+	background: rgba(0, 0, 0, 0.05);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 10px;
 
 	img {
-		height: 50%;
+		width: 25px;
+	}
+}
+
+@media screen and (width < 1000px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+	}
+}
+
+@media screen and (width < 696px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
 	}
 }

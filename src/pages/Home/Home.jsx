@@ -2,6 +2,8 @@ import "./Home.scss";
 import booksData from "./../../data/books-data.json";
 import { useState } from "react";
 import { useEffect } from "react";
+import heartIcon from "/heart.png";
+import heartIconRed from "/heart-red.png";
 
 const Home = ({ wish, cart, addToCart, addToWish }) => {
 	const [data, setData] = useState([]);
@@ -19,15 +21,23 @@ const Home = ({ wish, cart, addToCart, addToWish }) => {
 					const isInWish = wish.some((item) => item.id === el.id);
 					return (
 						<div key={index} className="card">
-							<img height={200} src={el.img} alt="" />
+							<div className="card__img-container">
+								<img src={el.img} alt="" />
+							</div>
 							<p>{el.name}</p>
 							<p>{el.price}$</p>
-							<button onClick={() => addToCart(el)}>
-								{isInCart ? "In cart" : "Add to Cart"}
-							</button>
-							<button onClick={() => addToWish(el)}>
-								{isInWish ? "In wish" : "Add to Wish"}
-							</button>
+							<div className="btn-container">
+								<button className="cart-btn" onClick={() => addToCart(el)}>
+									{isInCart ? "In cart" : "Add to Cart"}
+								</button>
+								<button className="wish-btn" onClick={() => addToWish(el)}>
+									{isInWish ? (
+										<img src={heartIconRed} alt="" />
+									) : (
+										<img src={heartIcon} alt="" />
+									)}
+								</button>
+							</div>
 						</div>
 					);
 				})}
