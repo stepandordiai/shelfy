@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
-import "./scss/App.scss";
 import { useState } from "react";
 import Cart from "./pages/Cart/Cart";
 import Wish from "./pages/Wish/Wish";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import productsData from "./assets/data/products-data.json";
+import "./scss/App.scss";
 
 function App() {
 	const [cart, setCart] = useState([]);
@@ -31,10 +33,14 @@ function App() {
 		<Router>
 			<Header cart={cart} wish={wish} />
 			<Routes>
+				<Route path="/" element={<Home productsData={productsData} />} />
+				<Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+				<Route path="/wish" element={<Wish wish={wish} />} />
 				<Route
-					path="/"
+					path="/product-page/:id"
 					element={
-						<Home
+						<ProductPage
+							productsData={productsData}
 							wish={wish}
 							cart={cart}
 							addToCart={addToCart}
@@ -42,8 +48,6 @@ function App() {
 						/>
 					}
 				/>
-				<Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-				<Route path="/wish" element={<Wish wish={wish} />} />
 			</Routes>
 		</Router>
 	);

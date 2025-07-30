@@ -6,29 +6,12 @@
 	padding: 70px 10px 10px 10px;
 }
 
-.card {
-	display: flex;
-	flex-direction: column;
-}
-
-.card__img-container {
-	background: rgba(0, 0, 0, 0.05);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	padding: 30px;
+.card-link {
+	color: #000;
 }
 
 .btn-container {
 	display: flex;
-}
-
-.cart-btn {
-	width: 100%;
-	background: #000;
-	color: #fff;
-	padding: 10px;
 }
 
 .wish-btn {

@@ -1,0 +1,25 @@
+.product-page__details {
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+}
+
+.product-page__details-title {
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.product-page__add-to-cart-btn {
+	width: 100%;
+	background: #000;
+	color: #fff;
+	padding: 10px;
+	height: 50px;
+	border-radius: 25px;
+	margin-top: 10px;
+	font-weight: 600;
+	font-size: 1.1rem;
+}
