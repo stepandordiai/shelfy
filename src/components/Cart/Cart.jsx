@@ -41,25 +41,26 @@ const Cart = ({ cart, setCart }) => {
 	const totalItems = cart.reduce((sum, item) => sum + item.cartQty, initValue);
 
 	return (
-		<>
-			<main>
-				<h1>Cart</h1>
-				<button onClick={removeCart}>Remove all products</button>
-				<p>Total items: {totalItems}</p>
-				<h2>Total price: {totalPrice}</h2>
-				<div className="cart-products">
-					{cart.map((el, index) => {
-						return (
-							<div key={index}>
-								<img src={el.img} alt="" />
-								<p>{el.name}</p>
-								<p>{el.cartQty}</p>
-								<div>
-									<button onClick={() => decrease(el.id)}>-</button>
-									<button onClick={() => increase(el.id)}>+</button>
-									<button onClick={() => remove(el.id)}>remove</button>
-								</div>
-								<div>
+		<div className="cart">
+			<p className="cart__title">Cart</p>
+			<button onClick={removeCart}>Remove all products</button>
+			<p>Total items: {totalItems}</p>
+			<h2>Total price: {totalPrice}</h2>
+			<div className="cart__items">
+				{cart.map((cartItem) => {
+					return (
+						<div key={cartItem.id} className="cart__item">
+							<img width={160} src={cartItem.img} alt="" />
+							<div>
+								<p>{cartItem.name}</p>
+								<p>€{cartItem.priceCents / 100}</p>
+							</div>
+							<div>
+								<button onClick={() => decrease(cartItem.id)}>-</button>
+								<button onClick={() => increase(cartItem.id)}>+</button>
+								<button onClick={() => remove(cartItem.id)}>remove</button>
+							</div>
+							{/* <div>
 									<div>
 										<label htmlFor="free">Free</label>
 										<input type="radio" />
@@ -72,13 +73,12 @@ const Cart = ({ cart, setCart }) => {
 										<label htmlFor="10">10$</label>
 										<input type="radio" />
 									</div>
-								</div>
-							</div>
-						);
-					})}
-				</div>
-			</main>
-		</>
+								</div> */}
+						</div>
+					);
+				})}
+			</div>
+		</div>
 	);
 };
 
