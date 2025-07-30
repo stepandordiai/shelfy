@@ -1,1 +1,2 @@
 update home grid
+update data and folder structure

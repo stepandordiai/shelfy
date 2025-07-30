@@ -1,21 +1,13 @@
 import "./Home.scss";
-import booksData from "./../../data/books-data.json";
-import { useState } from "react";
-import { useEffect } from "react";
+import productsData from "./../../assets/data/products-data.json";
 import heartIcon from "/heart.png";
 import heartIconRed from "/heart-red.png";
 
 const Home = ({ wish, cart, addToCart, addToWish }) => {
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-		setData(booksData);
-	});
-
 	return (
 		<>
 			<div className="grid">
-				{data.map((el, index) => {
+				{productsData.map((el, index) => {
 					// TODO:
 					const isInCart = cart.some((item) => item.id === el.id);
 					const isInWish = wish.some((item) => item.id === el.id);
@@ -25,7 +17,7 @@ const Home = ({ wish, cart, addToCart, addToWish }) => {
 								<img src={el.img} alt="" />
 							</div>
 							<p>{el.name}</p>
-							<p>{el.price}$</p>
+							<p>$ {el.priceCents / 100}</p>
 							<div className="btn-container">
 								<button className="cart-btn" onClick={() => addToCart(el)}>
 									{isInCart ? "In cart" : "Add to Cart"}

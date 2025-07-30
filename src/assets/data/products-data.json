@@ -1,0 +1,86 @@
+[
+	{
+		"id": 1,
+		"name": "Varsity Mesh Shorts",
+		"img": "https://cdn.shopify.com/s/files/1/0156/6146/products/ArrivalSlim5Short-SilhouetteGreyA2A1M-GBP4_3840x.jpg?v=1660034608",
+		"quantity": 30,
+		"priceCents": 3800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "Arrival 5' Shorts",
+		"img": "https://cdn.shopify.com/s/files/1/0156/6146/files/images-BasketballStyleShortsGSNavyA1C1I_UB9P_1231_3840x.jpg?v=1752064603",
+		"quantity": 30,
+		"priceCents": 2600,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Arrival 7' Shorts",
+		"img": "https://cdn.shopify.com/s/files/1/0156/6146/products/Arrival7ShortWhiteGMSH5380.A-Edit_ZH_ZH_0bce7b2d-f434-45ac-b95f-db153074bb44_3840x.jpg?v=1667555763",
+		"quantity": 30,
+		"priceCents": 2800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		]
+	},
+	{
+		"id": 4,
+		"name": "Hybrid Athlete 7' Shorts",
+		"img": "https://cdn.shopify.com/s/files/1/0156/6146/files/images-GFXConditioning7ArrivalShortsGSCoralRedA2C2C_RB0Y_1169_3840x.jpg?v=1751917163",
+		"quantity": 30,
+		"priceCents": 4800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		]
+	}
+]
