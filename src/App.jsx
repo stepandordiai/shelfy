@@ -26,7 +26,7 @@ function App() {
 	}
 
 	function addToWish(item) {
-		const exists = wish.find((i) => i.id === item.id);
+		const exists = wish.some((i) => i.id === item.id);
 
 		if (exists) {
 			openCart();
@@ -45,17 +45,24 @@ function App() {
 			<div onClick={hideCart} className="curtain"></div>
 			<Header cart={cart} wish={wish} />
 			<Routes>
-				<Route path="/" element={<Home productsData={productsData} />} />
+				<Route
+					path="/"
+					element={
+						<Home
+							productsData={productsData}
+							addToWish={addToWish}
+							wish={wish}
+						/>
+					}
+				/>
 				<Route path="/wish" element={<Wish wish={wish} />} />
 				<Route
 					path="/product-page/:id"
 					element={
 						<ProductPage
 							productsData={productsData}
-							wish={wish}
 							cart={cart}
 							addToCart={addToCart}
-							addToWish={addToWish}
 						/>
 					}
 				/>

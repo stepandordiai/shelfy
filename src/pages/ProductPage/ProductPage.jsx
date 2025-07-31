@@ -4,7 +4,6 @@ import "./ProductPage.scss";
 const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
 	const { id } = useParams();
 
-	// const isInWish = wish.some((item) => item.id === el.id);
 	const product = productsData.find((productData) => productData.id == id);
 
 	const isInCart = cart.some((cartItem) => cartItem.id == product.id);
@@ -22,13 +21,6 @@ const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
 						>
 							{isInCart ? "In cart" : "Add to Cart"}
 						</button>
-						{/* <button className="wish-btn" onClick={() => addToWish(el)}>
-							{isInWish ? (
-								<img src={heartIconRed} alt="" />
-							) : (
-								<img src={heartIcon} alt="" />
-							)}
-						</button> */}
 					</div>
 				</div>
 			</main>
