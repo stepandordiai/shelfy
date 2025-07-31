@@ -41,6 +41,7 @@ function App() {
 
 	return (
 		<Router>
+			<div className="main-curtain"></div>
 			<div onClick={hideCart} className="curtain"></div>
 			<Header cart={cart} wish={wish} />
 			<Routes>
