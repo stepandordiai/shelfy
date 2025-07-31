@@ -4,6 +4,7 @@ import heartIcon from "/heart.png";
 import "./Header.scss";
 import { useEffect } from "react";
 import { useState } from "react";
+import BurgerBtn from "../BurgerBtn/BurgerBtn";
 
 const Header = ({ cart, wish }) => {
 	const showCart = () => {
@@ -25,7 +26,7 @@ const Header = ({ cart, wish }) => {
 	return (
 		<header className="header">
 			<div className="header__top">
-				<div className="burger-btn"></div>
+				<BurgerBtn />
 				<NavLink className={"header__logo"} to={"/"}>
 					Shelfy
 				</NavLink>
