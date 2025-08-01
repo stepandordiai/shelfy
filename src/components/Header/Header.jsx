@@ -55,7 +55,7 @@ const Header = ({ cart, wish }) => {
 					</NavLink>
 					<button onClick={showCart} className="header__cart">
 						<img width={20} src={cartIcon} alt="" />
-						{cart.length > 0 && <span>10</span>}
+						{cart.length > 0 && <span>{cart.length}</span>}
 					</button>
 				</div>
 			</div>

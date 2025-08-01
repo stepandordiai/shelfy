@@ -13,16 +13,16 @@ function App() {
 	const [wish, setWish] = useState([]);
 
 	function addToCart(item) {
-		const exists = cart.find((i) => i.id === item.id);
+		const exists = cart.some((i) => i.id === item.id);
 
 		if (exists) {
 			openCart();
+		} else {
+			setCart((prev) => [...prev, { ...item, cartQty: 1 }]);
+			setTimeout(() => {
+				openCart();
+			}, 1500);
 		}
-		setCart((prev) => [...prev, { ...item, cartQty: 1 }]);
-		setTimeout(() => {
-			document.querySelector(".cart").classList.add("cart--active");
-			document.querySelector(".curtain").classList.add("curtain--active");
-		}, 1500);
 	}
 
 	function addToWish(item) {
@@ -33,6 +33,11 @@ function App() {
 		}
 		setWish((prev) => [...prev, item]);
 	}
+
+	const openCart = () => {
+		document.querySelector(".cart").classList.add("cart--active");
+		document.querySelector(".curtain").classList.add("curtain--active");
+	};
 
 	const hideCart = () => {
 		document.querySelector(".cart").classList.remove("cart--active");
