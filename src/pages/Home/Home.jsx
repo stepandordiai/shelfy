@@ -1,6 +1,6 @@
+import { NavLink } from "react-router-dom";
 import heartIcon from "/heart.png";
 import heartIconRed from "/heart-red.png";
-import { NavLink } from "react-router-dom";
 import "./Home.scss";
 
 const Home = ({ productsData, addToWish, wish }) => {

@@ -24,7 +24,8 @@
 }
 
 .cart__items {
-	overflow-y: scroll;
+	scrollbar-width: none;
+	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -32,4 +33,32 @@
 
 .cart__item {
 	display: flex;
+	padding-bottom: 10px;
+
+	&:not(:nth-last-child(1)) {
+		border-bottom: 1px solid hsl(0, 0%, 90%);
+	}
+}
+
+.cart__item-details {
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.cart__footer {
+	background: #fff;
+	padding-top: 12.5px;
+	margin-top: auto;
+}
+
+.cart__checkout-btn {
+	background: #000;
+	color: #fff;
+	height: 50px;
+	flex-shrink: 0;
+	width: 100%;
+	border-radius: 25px;
 }
