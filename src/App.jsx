@@ -72,7 +72,13 @@ function App() {
 					}
 				/>
 			</Routes>
-			<Cart cart={cart} setCart={setCart} wish={wish} addToWish={addToWish} />
+			<Cart
+				cart={cart}
+				setCart={setCart}
+				wish={wish}
+				addToWish={addToWish}
+				hideCart={hideCart}
+			/>
 		</Router>
 	);
 }

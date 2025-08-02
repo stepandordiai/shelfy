@@ -1,31 +1,60 @@
 .cart {
 	position: fixed;
-	left: 0;
-	width: 100%;
+	top: 0;
+	width: 500px;
 	bottom: 0;
+	right: 0;
 	z-index: 5;
-	border-radius: 25px 25px 0 0;
 	padding: 12.5px;
-	height: calc(100dvh - 80px);
-	overflow: hidden;
 	background: #fff;
 	display: flex;
 	flex-direction: column;
-	transform: translateY(100%);
+	transform: translate(100%, 0);
 	transition: transform 0.5s ease;
 }
 
 .cart--active {
-	transform: translateY(0);
+	transform: translate(0, 0);
+}
+
+.cart__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
 .cart__title {
 	font-size: 2rem;
 }
 
-.cart__items {
+.cart__header-close-btn {
+	margin: 5px 5px 0 0;
+}
+
+.cart__inner {
 	scrollbar-width: none;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.progress-bar {
+	height: 5px;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 2.5px;
+	overflow: hidden;
+	margin: 10px 0;
+
+	div {
+		width: 0%;
+		background: red;
+		height: 100%;
+		transition: all 0.5s ease;
+	}
+}
+
+.cart__items {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -48,6 +77,41 @@
 	width: 100%;
 }
 
+.cart__item-details-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	height: 100%;
+}
+
+.cart__discount {
+	margin-top: auto;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid hsl(0, 0%, 90%);
+	border-top: 1px solid hsl(0, 0%, 90%);
+}
+
+.cart__discount-form {
+	display: flex;
+	background: rgba(0, 0, 0, 0.05);
+	border-radius: 30px;
+	padding: 5px 5px 5px 15px;
+
+	input[type="text"] {
+		flex-grow: 1;
+	}
+
+	button[type="submit"] {
+		background: #000;
+		color: #fff;
+		height: 50px;
+		border-radius: 25px;
+		padding: 0 30px;
+	}
+}
+
 .cart__footer {
 	background: #fff;
 	padding-top: 12.5px;
@@ -61,4 +125,29 @@
 	flex-shrink: 0;
 	width: 100%;
 	border-radius: 25px;
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+@media screen and (width < 808px) {
+	.cart {
+		top: auto;
+		right: auto;
+		left: 0;
+		width: 100%;
+		bottom: 0;
+		z-index: 5;
+		border-radius: 25px 25px 0 0;
+		padding: 12.5px;
+		height: calc(100dvh - 80px);
+		background: #fff;
+		display: flex;
+		flex-direction: column;
+		transform: translate(0, 100%);
+		transition: transform 0.5s ease;
+	}
+
+	.cart--active {
+		transform: translate(0, 0);
+	}
 }
