@@ -94,10 +94,10 @@ const Header = ({ cart, wish }) => {
 							<div className="header__bottom-list-container">
 								<p style={{ fontSize: "1.2rem" }}>Products</p>
 								<ul>
-									<NavLink to="/all-products/mens">All products</NavLink>
-									<NavLink to="/t-shirts/mens">T-Shirts</NavLink>
-									<NavLink to="/shorts/mens">Shorts</NavLink>
-									<NavLink to="/sneackers/mens">Sneackers</NavLink>
+									<NavLink to="/category/all/mens">All products</NavLink>
+									<NavLink to="/category/t-shirts/mens">T-Shirts</NavLink>
+									<NavLink to="/category/shorts/mens">Shorts</NavLink>
+									<NavLink to="/category/sneackers/mens">Sneackers</NavLink>
 								</ul>
 							</div>
 						</>

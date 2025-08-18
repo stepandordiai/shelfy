@@ -29,9 +29,14 @@
 	}
 }
 
-@media screen and (width <= 808px) {
+@media screen and (width < 808px) {
 	.grid {
 		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (width <= 808px) {
+	.grid {
 		padding: 80px 10px 10px 10px;
 	}
 }
