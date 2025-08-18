@@ -1,8 +1,8 @@
 [
 	{
 		"id": 1,
-		"name": "Varsity Mesh Shorts",
-		"img": "https://cdn.shopify.com/s/files/1/0156/6146/products/ArrivalSlim5Short-SilhouetteGreyA2A1M-GBP4_3840x.jpg?v=1660034608",
+		"name": "Tričko s krátkým rukávem na cvičení",
+		"img": "https://cdn.media.amplience.net/i/primark/991107776002_05?$articleimages-regulardesktop$&fmt=auto",
 		"quantity": 30,
 		"priceCents": 3800,
 		"sizesQty": [
@@ -18,12 +18,14 @@
 				"size": "l",
 				"qty": 2
 			}
-		]
+		],
+		"type": "t-shirts",
+		"sex": "mens"
 	},
 	{
 		"id": 2,
-		"name": "Arrival 5' Shorts",
-		"img": "https://cdn.shopify.com/s/files/1/0156/6146/files/images-BasketballStyleShortsGSNavyA1C1I_UB9P_1231_3840x.jpg?v=1752064603",
+		"name": "Běžecké funkční šortky",
+		"img": "https://cdn.media.amplience.net/i/primark/991140613804_05?$articleimages-largedesktop$&fmt=auto",
 		"quantity": 30,
 		"priceCents": 2600,
 		"sizesQty": [
@@ -39,12 +41,14 @@
 				"size": "l",
 				"qty": 2
 			}
-		]
+		],
+		"type": "shorts",
+		"sex": "mens"
 	},
 	{
 		"id": 3,
-		"name": "Arrival 7' Shorts",
-		"img": "https://cdn.shopify.com/s/files/1/0156/6146/products/Arrival7ShortWhiteGMSH5380.A-Edit_ZH_ZH_0bce7b2d-f434-45ac-b95f-db153074bb44_3840x.jpg?v=1667555763",
+		"name": "Sandály k bazénu",
+		"img": "https://api.newyorker.de/csp/images/image/public/81d6c3acc69f802de82bc01c39209595.jpg?res=full-hd&frame=2_3",
 		"quantity": 30,
 		"priceCents": 2800,
 		"sizesQty": [
@@ -60,12 +64,14 @@
 				"size": "l",
 				"qty": 2
 			}
-		]
+		],
+		"type": "sneackers",
+		"sex": "mens"
 	},
 	{
 		"id": 4,
-		"name": "Hybrid Athlete 7' Shorts",
-		"img": "https://cdn.shopify.com/s/files/1/0156/6146/files/images-GFXConditioning7ArrivalShortsGSCoralRedA2C2C_RB0Y_1169_3840x.jpg?v=1751917163",
+		"name": "Nízké tenisky",
+		"img": "https://api.newyorker.de/csp/images/image/public/54a54b7bbf8025e8dd992f9042dd86ed.jpg?res=full-hd&frame=2_3",
 		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
@@ -81,6 +87,54 @@
 				"size": "l",
 				"qty": 2
 			}
-		]
+		],
+		"type": "sneackers",
+		"sex": "mens"
+	},
+	{
+		"id": 5,
+		"name": "Power T-Shirt",
+		"img": "https://cdn.shopify.com/s/files/1/1367/5201/products/PowerSsT-Shirt_Og_BlackA2A1W.BTIFF_IS_3840x.jpg?v=1645131338",
+		"quantity": 30,
+		"priceCents": 4800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		],
+		"type": "t-shirts",
+		"sex": "mens"
+	},
+	{
+		"id": 6,
+		"name": "Arrival 5\" Shorts",
+		"img": "https://cdn.shopify.com/s/files/1/1367/5201/products/ArrivalSlim5Short-SilhouetteGreyA2A1M-GBP41_3840x.jpg?v=1660034606",
+		"quantity": 30,
+		"priceCents": 4800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		],
+		"type": "shorts",
+		"sex": "mens"
 	}
 ]
