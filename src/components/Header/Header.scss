@@ -108,6 +108,21 @@
 	overflow: hidden;
 }
 
+.header-bottom__nav-list {
+	display: flex;
+	flex-direction: column;
+	row-gap: 5px;
+}
+
+.header-bottom__nav-link {
+	color: hsl(0, 0%, 50%);
+	transition: color 0.3s;
+
+	&:hover {
+		color: hsl(0, 0%, 0%);
+	}
+}
+
 @media screen and (width < 808px) {
 	.header__top {
 		padding: 0 15px;

@@ -136,5 +136,97 @@
 		],
 		"type": "shorts",
 		"sex": "mens"
+	},
+	{
+		"id": 7,
+		"name": "Сумочка Love Moschino",
+		"img": "https://img2.ans-media.com/i/1702x2552/SS24-TOD2OC-99X_F1.jpg?v=1708612400",
+		"quantity": 30,
+		"priceCents": 4800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		],
+		"type": "accessories",
+		"sex": "womens"
+	},
+	{
+		"id": 8,
+		"name": "Замшеві кросівки Gant Nebrada",
+		"img": "https://img2.ans-media.com/i/1084x1626/AW23-OBM096-99X_F1.jpg",
+		"quantity": 30,
+		"priceCents": 4800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		],
+		"type": "sneackers",
+		"sex": "mens"
+	},
+	{
+		"id": 9,
+		"name": "Сумочка Guess",
+		"img": "https://img2.ans-media.com/i/1084x1626/SS23-TOD17P-88X_F1.jpg",
+		"quantity": 30,
+		"priceCents": 4800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		],
+		"type": "sneackers",
+		"sex": "mens"
+	},
+	{
+		"id": 10,
+		"name": "Шкіряні кросівки Guess Silea",
+		"img": "https://img2.ans-media.com/i/1084x1626/SS23-OBM0FL-00X_F1.jpg?v=1671619397",
+		"quantity": 30,
+		"priceCents": 4800,
+		"sizesQty": [
+			{
+				"size": "s",
+				"qty": 2
+			},
+			{
+				"size": "m",
+				"qty": 2
+			},
+			{
+				"size": "l",
+				"qty": 2
+			}
+		],
+		"type": "sneackers",
+		"sex": "mens"
 	}
 ]

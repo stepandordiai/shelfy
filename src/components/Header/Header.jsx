@@ -92,13 +92,33 @@ const Header = ({ cart, wish }) => {
 								</ul>
 							</div>
 							<div className="header__bottom-list-container">
-								<p style={{ fontSize: "1.2rem" }}>Products</p>
-								<ul>
-									<NavLink to="/category/all/mens">All products</NavLink>
-									<NavLink to="/category/t-shirts/mens">T-Shirts</NavLink>
-									<NavLink to="/category/shorts/mens">Shorts</NavLink>
-									<NavLink to="/category/sneackers/mens">Sneackers</NavLink>
-								</ul>
+								<p style={{ fontSize: "1.2rem", marginBottom: 10 }}>Products</p>
+								<div className="header-bottom__nav-list">
+									<NavLink
+										className="header-bottom__nav-link"
+										to="/category/all/mens"
+									>
+										All products
+									</NavLink>
+									<NavLink
+										className="header-bottom__nav-link"
+										to="/category/t-shirts/mens"
+									>
+										T-Shirts
+									</NavLink>
+									<NavLink
+										className="header-bottom__nav-link"
+										to="/category/shorts/mens"
+									>
+										Shorts
+									</NavLink>
+									<NavLink
+										className="header-bottom__nav-link"
+										to="/category/sneackers/mens"
+									>
+										Sneackers
+									</NavLink>
+								</div>
 							</div>
 						</>
 					)}
