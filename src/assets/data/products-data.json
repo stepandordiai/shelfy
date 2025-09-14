@@ -7,15 +7,27 @@
 		"priceCents": 3800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -30,15 +42,27 @@
 		"priceCents": 2600,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -53,15 +77,27 @@
 		"priceCents": 2800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -76,15 +112,27 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -99,15 +147,27 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -122,15 +182,27 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -145,15 +217,27 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -168,15 +252,27 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -191,15 +287,27 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],
@@ -214,15 +322,27 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "s",
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
 				"qty": 2
 			},
 			{
-				"size": "m",
+				"size": "M",
 				"qty": 2
 			},
 			{
-				"size": "l",
+				"size": "L",
+				"qty": 2
+			},
+			{
+				"size": "XL",
+				"qty": 2
+			},
+			{
+				"size": "XXL",
 				"qty": 2
 			}
 		],

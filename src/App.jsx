@@ -6,21 +6,23 @@ import Cart from "./components/Cart/Cart";
 import Wish from "./pages/Wish/Wish";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import productsData from "./assets/data/products-data.json";
-import "./scss/App.scss";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ScrollToTop from "./utils/ScrollToTop";
+import "./scss/App.scss";
 
 function App() {
 	const [cart, setCart] = useState([]);
 	const [wish, setWish] = useState([]);
 
-	function addToCart(item) {
-		const exists = cart.some((i) => i.id === item.id);
+	function addToCart(item, size) {
+		if (!size) return;
+
+		const exists = cart.some((i) => i.id === item.id && i.productSize === size);
 
 		if (exists) {
 			openCart();
 		} else {
-			setCart((prev) => [...prev, { ...item, cartQty: 1 }]);
+			setCart((prev) => [...prev, { ...item, cartQty: 1, productSize: size }]);
 			setTimeout(() => {
 				openCart();
 			}, 1500);

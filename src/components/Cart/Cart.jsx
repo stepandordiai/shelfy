@@ -86,6 +86,8 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 		return freeDelivery - totalPrice;
 	};
 
+	console.log(cart);
+
 	useEffect(() => {
 		const progressBar = document.querySelector(".progress-bar div");
 
@@ -137,6 +139,7 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 										<div>
 											<p>{cartItem.name}</p>
 											<p>€ {cartItem.priceCents / 100}</p>
+											<p>Size: {cartItem.productSize}</p>
 										</div>
 										<button
 											className="cart__wish-btn"
