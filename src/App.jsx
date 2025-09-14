@@ -8,6 +8,7 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 import productsData from "./assets/data/products-data.json";
 import "./scss/App.scss";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
 	const [cart, setCart] = useState([]);
@@ -47,6 +48,7 @@ function App() {
 
 	return (
 		<Router>
+			<ScrollToTop />
 			<div className="main-curtain"></div>
 			<div onClick={hideCart} className="curtain"></div>
 			<Header cart={cart} wish={wish} />
