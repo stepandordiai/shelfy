@@ -3,7 +3,6 @@
 		"id": 1,
 		"name": "Tričko s krátkým rukávem na cvičení",
 		"img": "https://cdn.media.amplience.net/i/primark/991107776002_05?$articleimages-regulardesktop$&fmt=auto",
-		"quantity": 30,
 		"priceCents": 3800,
 		"sizesQty": [
 			{
@@ -38,7 +37,6 @@
 		"id": 2,
 		"name": "Běžecké funkční šortky",
 		"img": "https://cdn.media.amplience.net/i/primark/991140613804_05?$articleimages-largedesktop$&fmt=auto",
-		"quantity": 30,
 		"priceCents": 2600,
 		"sizesQty": [
 			{
@@ -73,7 +71,6 @@
 		"id": 3,
 		"name": "Sandály k bazénu",
 		"img": "https://api.newyorker.de/csp/images/image/public/81d6c3acc69f802de82bc01c39209595.jpg?res=full-hd&frame=2_3",
-		"quantity": 30,
 		"priceCents": 2800,
 		"sizesQty": [
 			{
@@ -108,7 +105,6 @@
 		"id": 4,
 		"name": "Nízké tenisky",
 		"img": "https://api.newyorker.de/csp/images/image/public/54a54b7bbf8025e8dd992f9042dd86ed.jpg?res=full-hd&frame=2_3",
-		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
 			{
@@ -143,7 +139,6 @@
 		"id": 5,
 		"name": "Power T-Shirt",
 		"img": "https://cdn.shopify.com/s/files/1/1367/5201/products/PowerSsT-Shirt_Og_BlackA2A1W.BTIFF_IS_3840x.jpg?v=1645131338",
-		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
 			{
@@ -178,7 +173,6 @@
 		"id": 6,
 		"name": "Arrival 5\" Shorts",
 		"img": "https://cdn.shopify.com/s/files/1/1367/5201/products/ArrivalSlim5Short-SilhouetteGreyA2A1M-GBP41_3840x.jpg?v=1660034606",
-		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
 			{
@@ -213,7 +207,6 @@
 		"id": 7,
 		"name": "Сумочка Love Moschino",
 		"img": "https://img2.ans-media.com/i/1702x2552/SS24-TOD2OC-99X_F1.jpg?v=1708612400",
-		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
 			{
@@ -248,7 +241,6 @@
 		"id": 8,
 		"name": "Замшеві кросівки Gant Nebrada",
 		"img": "https://img2.ans-media.com/i/1084x1626/AW23-OBM096-99X_F1.jpg",
-		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
 			{
@@ -283,7 +275,6 @@
 		"id": 9,
 		"name": "Сумочка Guess",
 		"img": "https://img2.ans-media.com/i/1084x1626/SS23-TOD17P-88X_F1.jpg",
-		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
 			{
@@ -318,7 +309,6 @@
 		"id": 10,
 		"name": "Шкіряні кросівки Guess Silea",
 		"img": "https://img2.ans-media.com/i/1084x1626/SS23-OBM0FL-00X_F1.jpg?v=1671619397",
-		"quantity": 30,
 		"priceCents": 4800,
 		"sizesQty": [
 			{
