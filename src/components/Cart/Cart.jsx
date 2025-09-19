@@ -36,18 +36,22 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 	// 	);
 	// };
 
-	const decrease = (id) => {
+	const decrease = (id, size) => {
 		setCart((prevCart) =>
 			prevCart.map((el) =>
-				el.id === id ? { ...el, cartQty: el.cartQty - 1 } : el
+				el.id === id && el.productSize === size
+					? { ...el, cartQty: el.cartQty - 1 }
+					: el
 			)
 		);
 	};
 
-	const increase = (id) => {
+	const increase = (id, size) => {
 		setCart((prevCart) =>
 			prevCart.map((el) =>
-				el.id === id ? { ...el, cartQty: el.cartQty + 1 } : el
+				el.id === id && el.productSize === size
+					? { ...el, cartQty: el.cartQty + 1 }
+					: el
 			)
 		);
 	};
@@ -182,14 +186,18 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 											</button>
 											<div className="cart-qty-container">
 												<button
-													onClick={() => decrease(cartItem.id)}
+													onClick={() =>
+														decrease(cartItem.id, cartItem.productSize)
+													}
 													disabled={cartItem.cartQty === 1}
 												>
 													-
 												</button>
 												<p>{cartItem.cartQty}</p>
 												<button
-													onClick={() => increase(cartItem.id)}
+													onClick={() =>
+														increase(cartItem.id, cartItem.productSize)
+													}
 													disabled={cartItem.cartQty === 10}
 												>
 													+
