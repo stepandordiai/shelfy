@@ -95,24 +95,28 @@ const Header = ({ cart, wish }) => {
 								<p style={{ fontSize: "1.2rem", marginBottom: 10 }}>Products</p>
 								<div className="header-bottom__nav-list">
 									<NavLink
+										onClick={() => handleVisibility(false, "men")}
 										className="header-bottom__nav-link"
 										to="/category/all/mens"
 									>
 										All products
 									</NavLink>
 									<NavLink
+										onClick={() => handleVisibility(false, "men")}
 										className="header-bottom__nav-link"
 										to="/category/t-shirts/mens"
 									>
 										T-Shirts
 									</NavLink>
 									<NavLink
+										onClick={() => handleVisibility(false, "men")}
 										className="header-bottom__nav-link"
 										to="/category/shorts/mens"
 									>
 										Shorts
 									</NavLink>
 									<NavLink
+										onClick={() => handleVisibility(false, "men")}
 										className="header-bottom__nav-link"
 										to="/category/sneackers/mens"
 									>
