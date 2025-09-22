@@ -12,15 +12,21 @@ const CategoryPage = ({ productsData, addToWish, wish }) => {
 		return (product.type == type || type == "all") && product.sex == sex;
 	});
 
-	console.log(products);
-
 	return (
 		<>
 			<Helmet>
 				<title>Shelfy - Official store</title>
 			</Helmet>
-			<main className="home">
-				<div className="grid">
+			<main className="category-page">
+				<div className="category-page__title-container">
+					<h1>{sex.slice(0, 1).toUpperCase() + sex.slice(1)}</h1>
+					<h2>
+						{type === "all"
+							? "All products"
+							: type.slice(0, 1).toUpperCase() + type.slice(1)}
+					</h2>
+				</div>
+				<div className="category-page__grid">
 					{products.map((el, index) => {
 						return (
 							<NavLink
