@@ -90,16 +90,14 @@ const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
 							</strong>
 						)}
 					</div>
-					<div className="btn-container">
-						<button
-							className="product-page__add-to-cart-btn"
-							onClick={() =>
-								addToCart(product, chosenSize, setNotSelectedSizeError)
-							}
-						>
-							{isInCart ? "In cart" : "Add to Cart"}
-						</button>
-					</div>
+					<button
+						className="product-page__add-to-cart-btn"
+						onClick={() =>
+							addToCart(product, chosenSize, setNotSelectedSizeError)
+						}
+					>
+						{isInCart ? "In cart" : "Add to Cart"}
+					</button>
 				</div>
 			</main>
 		</>

@@ -17,6 +17,12 @@ function App() {
 	function addToCart(item, size, setNotSelectedSizeError) {
 		if (!size) {
 			setNotSelectedSizeError(true);
+			// TODO: Not a react-friendly way
+			document.querySelector(".product-page__sizes").scrollIntoView({
+				behavior: "smooth",
+				// TODO:
+				block: "center",
+			});
 			return;
 		}
 

@@ -65,6 +65,8 @@
 }
 
 .product-page__add-to-cart-btn {
+	position: sticky;
+	bottom: 10px;
 	width: 100%;
 	background: #000;
 	color: #fff;
