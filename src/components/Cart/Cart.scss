@@ -92,6 +92,32 @@
 	align-items: center;
 	column-gap: 10px;
 	font-size: 1.2rem;
+
+	p {
+		background: rgba(0, 0, 0, 0.05);
+		border-radius: 10px;
+		min-width: 35px;
+		aspect-ratio: 1/1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 0.9rem;
+	}
+
+	button {
+		border-radius: 10px;
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		min-width: 35px;
+		aspect-ratio: 1/1;
+
+		&:hover {
+			border: 1px solid rgba(0, 0, 0, 0.1);
+		}
+
+		&:active {
+			border: 1px solid rgba(0, 0, 0, 0.25);
+		}
+	}
 }
 
 .cart__discount {
