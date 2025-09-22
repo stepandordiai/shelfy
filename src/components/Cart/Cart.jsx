@@ -2,8 +2,8 @@ import heartIcon from "/heart.png";
 import heartIconRed from "/heart-red.png";
 import trashIcon from "/delete.png";
 import closeIcon from "/close.png";
-import "./Cart.scss";
 import { useEffect } from "react";
+import "./Cart.scss";
 
 const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 	// const decrease = (id) => {
@@ -102,7 +102,8 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 
 	// const totalItems = cart.reduce((sum, item) => sum + item.cartQty, 0);
 
-	let freeDelivery = 75;
+	const deliveryPrice = 5;
+	const freeDelivery = 75;
 
 	const checkDelivery = () => {
 		return freeDelivery - totalPrice;
@@ -126,7 +127,7 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 			</div>
 			<div className="cart__inner">
 				<div style={{ marginTop: 10, marginBottom: 10 }}>
-					{totalPrice < 75 ? (
+					{totalPrice < freeDelivery ? (
 						<p>You're € {checkDelivery()} away from Free Standard Shipping</p>
 					) : (
 						<p>You've qualified for Free Standard Shipping</p>
@@ -227,10 +228,21 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 						<button type="submit">Apply</button>
 					</form>
 				</div>
-				<div>
+				<strong style={{ marginBottom: 10 }}>Order summary</strong>
+				<div className="cart__summary">
+					<p style={{ display: "flex", justifyContent: "space-between" }}>
+						<span>Sub Total</span>
+						<span>€ {totalPrice}</span>
+					</p>
+					<p style={{ display: "flex", justifyContent: "space-between" }}>
+						<span>Shipping</span>
+						<span>{checkDelivery() > 0 ? "€ 5" : "Free"}</span>
+					</p>
 					<strong style={{ display: "flex", justifyContent: "space-between" }}>
 						<span>Total</span>
-						<span>€ {totalPrice}</span>
+						<span>
+							€ {checkDelivery() > 0 ? totalPrice + deliveryPrice : totalPrice}
+						</span>
 					</strong>
 				</div>
 			</div>
