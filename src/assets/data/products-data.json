@@ -246,7 +246,7 @@
 				"qty": 1
 			}
 		],
-		"type": "accessories",
+		"type": "bags",
 		"sex": "womens"
 	},
 	{
@@ -310,8 +310,8 @@
 				"qty": 1
 			}
 		],
-		"type": "sneackers",
-		"sex": "mens"
+		"type": "bags",
+		"sex": "womens"
 	},
 	{
 		"id": 10,
