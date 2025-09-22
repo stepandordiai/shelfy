@@ -125,132 +125,150 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 					<img src={closeIcon} width={25} alt="" />
 				</button>
 			</div>
-			<div className="cart__inner">
-				<div style={{ marginTop: 10, marginBottom: 10 }}>
-					{totalPrice < freeDelivery ? (
-						<p>You're € {checkDelivery()} away from Free Standard Shipping</p>
-					) : (
-						<p>You've qualified for Free Standard Shipping</p>
-					)}
+			<div style={{ marginTop: 10, marginBottom: 10 }}>
+				{totalPrice < freeDelivery ? (
+					<p>You're € {checkDelivery()} away from Free Standard Shipping</p>
+				) : (
+					<p>You've qualified for Free Standard Shipping</p>
+				)}
 
-					<div className="progress-bar">
-						<div></div>
-					</div>
-					<p
-						style={{
-							display: "flex",
-							justifyContent: "space-between",
-							color: "hsl(0, 0%, 50%)",
-						}}
-					>
-						<span>€ 0</span>
-						<span>€ 75</span>
-					</p>
+				<div className="progress-bar">
+					<div></div>
 				</div>
-				{/* <button style={{ marginBottom: 10 }} onClick={removeCart}>
+				<p
+					style={{
+						display: "flex",
+						justifyContent: "space-between",
+						color: "hsl(0, 0%, 50%)",
+					}}
+				>
+					<span>€ 0</span>
+					<span>€ 75</span>
+				</p>
+			</div>
+			{cart.length === 0 ? (
+				<div style={{ margin: "auto" }}>Your cart is empty</div>
+			) : (
+				<>
+					<div className="cart__inner">
+						{/* <button style={{ marginBottom: 10 }} onClick={removeCart}>
 					Remove all products
 				</button> */}
-				<div className="cart__items">
-					{cart.length === 0 ? (
-						<div style={{ margin: "auto" }}>Your cart is empty</div>
-					) : (
-						cart.map((cartItem) => {
-							return (
-								<div key={cartItem.id} className="cart__item">
-									<img width={120} src={cartItem.img} alt="" />
-									<div className="cart__item-details">
-										<div className="cart__item-details-left">
-											<div>
-												<p>{cartItem.name}</p>
-												<p>€ {cartItem.priceCents / 100}</p>
-												<p>Size: {cartItem.productSize}</p>
-											</div>
-											<button
-												className="cart__wish-btn"
-												onClick={(e) => {
-													// TODO:
-													e.preventDefault(); // Prevent NavLink navigation
-													e.stopPropagation(); // Stop bubbling up the click
-													addToWish(cartItem);
-												}}
-											>
-												{wish.some((item) => item.id == cartItem.id) ? (
-													<img
-														src={heartIconRed}
-														width={20}
-														height={20}
-														alt=""
-													/>
-												) : (
-													<img src={heartIcon} width={20} height={20} alt="" />
-												)}
-											</button>
-											<div className="cart-qty-container">
+						<div className="cart__items">
+							{cart.length === 0 ? (
+								<div style={{ margin: "auto" }}>Your cart is empty</div>
+							) : (
+								cart.map((cartItem) => {
+									return (
+										<div key={cartItem.id} className="cart__item">
+											<img width={120} src={cartItem.img} alt="" />
+											<div className="cart__item-details">
+												<div className="cart__item-details-left">
+													<div>
+														<p>{cartItem.name}</p>
+														<p>€ {cartItem.priceCents / 100}</p>
+														<p>Size: {cartItem.productSize}</p>
+													</div>
+													<button
+														className="cart__wish-btn"
+														onClick={(e) => {
+															// TODO:
+															e.preventDefault(); // Prevent NavLink navigation
+															e.stopPropagation(); // Stop bubbling up the click
+															addToWish(cartItem);
+														}}
+													>
+														{wish.some((item) => item.id == cartItem.id) ? (
+															<img
+																src={heartIconRed}
+																width={20}
+																height={20}
+																alt=""
+															/>
+														) : (
+															<img
+																src={heartIcon}
+																width={20}
+																height={20}
+																alt=""
+															/>
+														)}
+													</button>
+													<div className="cart-qty-container">
+														<button
+															onClick={() =>
+																decrease(cartItem.id, cartItem.productSize)
+															}
+															disabled={cartItem.cartQty === 1}
+														>
+															-
+														</button>
+														<p>{cartItem.cartQty}</p>
+														<button
+															onClick={() =>
+																increase(cartItem.id, cartItem.productSize)
+															}
+															disabled={cartItem.cartQty === 10}
+														>
+															+
+														</button>
+													</div>
+												</div>
 												<button
 													onClick={() =>
-														decrease(cartItem.id, cartItem.productSize)
+														remove(cartItem.id, cartItem.productSize)
 													}
-													disabled={cartItem.cartQty === 1}
 												>
-													-
-												</button>
-												<p>{cartItem.cartQty}</p>
-												<button
-													onClick={() =>
-														increase(cartItem.id, cartItem.productSize)
-													}
-													disabled={cartItem.cartQty === 10}
-												>
-													+
+													<img src={trashIcon} width={20} height={20} alt="" />
 												</button>
 											</div>
 										</div>
-										<button
-											onClick={() => remove(cartItem.id, cartItem.productSize)}
-										>
-											<img src={trashIcon} width={20} height={20} alt="" />
-										</button>
-									</div>
-								</div>
-							);
-						})
-					)}
-				</div>
-				<div className="cart__discount">
-					<p style={{ marginBottom: 10 }}>Discount code?</p>
-					<form
-						style={{ marginBottom: 10 }}
-						onSubmit={handleDiscount}
-						className="cart__discount-form"
-						action=""
-					>
-						<input type="text" placeholder="Enter code" />
-						<button type="submit">Apply</button>
-					</form>
-				</div>
-				<strong style={{ marginBottom: 10 }}>Order summary</strong>
-				<div className="cart__summary">
-					<p style={{ display: "flex", justifyContent: "space-between" }}>
-						<span>Sub Total</span>
-						<span>€ {totalPrice}</span>
-					</p>
-					<p style={{ display: "flex", justifyContent: "space-between" }}>
-						<span>Shipping</span>
-						<span>{checkDelivery() > 0 ? "€ 5" : "Free"}</span>
-					</p>
-					<strong style={{ display: "flex", justifyContent: "space-between" }}>
-						<span>Total</span>
-						<span>
-							€ {checkDelivery() > 0 ? totalPrice + deliveryPrice : totalPrice}
-						</span>
-					</strong>
-				</div>
-			</div>
-			<div className="cart__footer">
-				<button onClick={handleCheckout} className="cart__checkout-btn">
-					Checkout
-				</button>
-			</div>
+									);
+								})
+							)}
+						</div>
+						<div className="cart__discount">
+							<p style={{ marginBottom: 10 }}>Discount code?</p>
+							<form
+								style={{ marginBottom: 10 }}
+								onSubmit={handleDiscount}
+								className="cart__discount-form"
+								action=""
+							>
+								<input type="text" placeholder="Enter code" />
+								<button type="submit">Apply</button>
+							</form>
+						</div>
+						<strong style={{ marginBottom: 10 }}>Order summary</strong>
+						<div className="cart__summary">
+							<p style={{ display: "flex", justifyContent: "space-between" }}>
+								<span>Sub Total</span>
+								<span>€ {totalPrice}</span>
+							</p>
+							<p style={{ display: "flex", justifyContent: "space-between" }}>
+								<span>Shipping</span>
+								<span>{checkDelivery() > 0 ? "€ 5" : "Free"}</span>
+							</p>
+							<strong
+								style={{ display: "flex", justifyContent: "space-between" }}
+							>
+								<span>Total</span>
+								<span>
+									€{" "}
+									{checkDelivery() > 0
+										? totalPrice + deliveryPrice
+										: totalPrice}
+								</span>
+							</strong>
+						</div>
+					</div>
+					<div className="cart__footer">
+						<button onClick={handleCheckout} className="cart__checkout-btn">
+							Checkout
+						</button>
+					</div>
+				</>
+			)}
 		</div>
 	);
 };
