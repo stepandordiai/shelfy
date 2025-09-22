@@ -14,8 +14,11 @@ function App() {
 	const [cart, setCart] = useState([]);
 	const [wish, setWish] = useState([]);
 
-	function addToCart(item, size) {
-		if (!size) return;
+	function addToCart(item, size, setNotSelectedSizeError) {
+		if (!size) {
+			setNotSelectedSizeError(true);
+			return;
+		}
 
 		const exists = cart.some((i) => i.id === item.id && i.productSize === size);
 
