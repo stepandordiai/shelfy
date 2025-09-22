@@ -54,6 +54,27 @@
 	}
 }
 
+.cart__empty-container {
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.cart__link {
+	background-color: #000;
+	padding: 10px;
+	color: #fff;
+	height: 50px;
+	border-radius: 25px;
+	padding: 12.5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .cart__items {
 	display: flex;
 	flex-direction: column;

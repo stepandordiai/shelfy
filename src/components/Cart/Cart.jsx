@@ -3,6 +3,7 @@ import heartIconRed from "/heart-red.png";
 import trashIcon from "/delete.png";
 import closeIcon from "/close.png";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import "./Cart.scss";
 
 const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
@@ -147,7 +148,23 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 				</p>
 			</div>
 			{cart.length === 0 ? (
-				<div style={{ margin: "auto" }}>Your cart is empty</div>
+				<div className="cart__empty-container">
+					<p>Your cart is empty</p>
+					<NavLink
+						onClick={hideCart}
+						className="cart__link"
+						to="/category/all/mens"
+					>
+						Shop Mens
+					</NavLink>
+					<NavLink
+						onClick={hideCart}
+						className="cart__link"
+						to="/category/all/mens"
+					>
+						Shop Womens
+					</NavLink>
+				</div>
 			) : (
 				<>
 					<div className="cart__inner">
