@@ -11,23 +11,23 @@
 			},
 			{
 				"size": "S",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "M",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "L",
-				"qty": 2
+				"qty": 1
 			},
 			{
 				"size": "XL",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "XXL",
-				"qty": 2
+				"qty": 0
 			}
 		],
 		"type": "t-shirts",
@@ -45,23 +45,23 @@
 			},
 			{
 				"size": "S",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "M",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "L",
-				"qty": 2
+				"qty": 1
 			},
 			{
 				"size": "XL",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "XXL",
-				"qty": 2
+				"qty": 0
 			}
 		],
 		"type": "shorts",
@@ -74,28 +74,44 @@
 		"priceCents": 2800,
 		"sizesQty": [
 			{
-				"size": "XS",
+				"size": "36",
 				"qty": 0
 			},
 			{
-				"size": "S",
-				"qty": 2
+				"size": "37",
+				"qty": 0
 			},
 			{
-				"size": "M",
-				"qty": 2
+				"size": "38",
+				"qty": 0
 			},
 			{
-				"size": "L",
-				"qty": 2
+				"size": "39",
+				"qty": 0
 			},
 			{
-				"size": "XL",
-				"qty": 2
+				"size": "40",
+				"qty": 0
 			},
 			{
-				"size": "XXL",
-				"qty": 2
+				"size": "41",
+				"qty": 0
+			},
+			{
+				"size": "42",
+				"qty": 0
+			},
+			{
+				"size": "43",
+				"qty": 0
+			},
+			{
+				"size": "44",
+				"qty": 1
+			},
+			{
+				"size": "45",
+				"qty": 0
 			}
 		],
 		"type": "sneackers",
@@ -108,28 +124,44 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "XS",
+				"size": "36",
 				"qty": 0
 			},
 			{
-				"size": "S",
-				"qty": 2
+				"size": "37",
+				"qty": 0
 			},
 			{
-				"size": "M",
-				"qty": 2
+				"size": "38",
+				"qty": 0
 			},
 			{
-				"size": "L",
-				"qty": 2
+				"size": "39",
+				"qty": 0
 			},
 			{
-				"size": "XL",
-				"qty": 2
+				"size": "40",
+				"qty": 0
 			},
 			{
-				"size": "XXL",
-				"qty": 2
+				"size": "41",
+				"qty": 0
+			},
+			{
+				"size": "42",
+				"qty": 0
+			},
+			{
+				"size": "43",
+				"qty": 0
+			},
+			{
+				"size": "44",
+				"qty": 1
+			},
+			{
+				"size": "45",
+				"qty": 0
 			}
 		],
 		"type": "sneackers",
@@ -147,23 +179,23 @@
 			},
 			{
 				"size": "S",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "M",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "L",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "XL",
-				"qty": 2
+				"qty": 1
 			},
 			{
 				"size": "XXL",
-				"qty": 2
+				"qty": 0
 			}
 		],
 		"type": "t-shirts",
@@ -181,23 +213,23 @@
 			},
 			{
 				"size": "S",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "M",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "L",
-				"qty": 2
+				"qty": 1
 			},
 			{
 				"size": "XL",
-				"qty": 2
+				"qty": 0
 			},
 			{
 				"size": "XXL",
-				"qty": 2
+				"qty": 0
 			}
 		],
 		"type": "shorts",
@@ -210,28 +242,8 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "XS",
-				"qty": 0
-			},
-			{
-				"size": "S",
-				"qty": 2
-			},
-			{
-				"size": "M",
-				"qty": 2
-			},
-			{
-				"size": "L",
-				"qty": 2
-			},
-			{
-				"size": "XL",
-				"qty": 2
-			},
-			{
-				"size": "XXL",
-				"qty": 2
+				"size": "One size",
+				"qty": 1
 			}
 		],
 		"type": "accessories",
@@ -244,28 +256,44 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "XS",
+				"size": "36",
 				"qty": 0
 			},
 			{
-				"size": "S",
-				"qty": 2
+				"size": "37",
+				"qty": 0
 			},
 			{
-				"size": "M",
-				"qty": 2
+				"size": "38",
+				"qty": 0
 			},
 			{
-				"size": "L",
-				"qty": 2
+				"size": "39",
+				"qty": 0
 			},
 			{
-				"size": "XL",
-				"qty": 2
+				"size": "40",
+				"qty": 0
 			},
 			{
-				"size": "XXL",
-				"qty": 2
+				"size": "41",
+				"qty": 0
+			},
+			{
+				"size": "42",
+				"qty": 0
+			},
+			{
+				"size": "43",
+				"qty": 0
+			},
+			{
+				"size": "44",
+				"qty": 1
+			},
+			{
+				"size": "45",
+				"qty": 0
 			}
 		],
 		"type": "sneackers",
@@ -278,28 +306,8 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "XS",
-				"qty": 0
-			},
-			{
-				"size": "S",
-				"qty": 2
-			},
-			{
-				"size": "M",
-				"qty": 2
-			},
-			{
-				"size": "L",
-				"qty": 2
-			},
-			{
-				"size": "XL",
-				"qty": 2
-			},
-			{
-				"size": "XXL",
-				"qty": 2
+				"size": "One size",
+				"qty": 1
 			}
 		],
 		"type": "sneackers",
@@ -312,28 +320,44 @@
 		"priceCents": 4800,
 		"sizesQty": [
 			{
-				"size": "XS",
+				"size": "36",
 				"qty": 0
 			},
 			{
-				"size": "S",
-				"qty": 2
+				"size": "37",
+				"qty": 0
 			},
 			{
-				"size": "M",
-				"qty": 2
+				"size": "38",
+				"qty": 0
 			},
 			{
-				"size": "L",
-				"qty": 2
+				"size": "39",
+				"qty": 0
 			},
 			{
-				"size": "XL",
-				"qty": 2
+				"size": "40",
+				"qty": 0
 			},
 			{
-				"size": "XXL",
-				"qty": 2
+				"size": "41",
+				"qty": 0
+			},
+			{
+				"size": "42",
+				"qty": 0
+			},
+			{
+				"size": "43",
+				"qty": 0
+			},
+			{
+				"size": "44",
+				"qty": 1
+			},
+			{
+				"size": "45",
+				"qty": 0
 			}
 		],
 		"type": "sneackers",

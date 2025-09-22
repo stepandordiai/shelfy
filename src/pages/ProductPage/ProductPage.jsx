@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./ProductPage.scss";
 
 const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
@@ -19,6 +19,14 @@ const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
 		setChozenSize((prev) => (prev = props));
 		setNotSelectedSizeError(false);
 	};
+
+	useEffect(() => {
+		if (product.sizesQty.length === 1) {
+			const { size } = product.sizesQty[0];
+
+			handleChosenSize(size);
+		}
+	}, [product.sizesQty]);
 	return (
 		<>
 			<main className="product-page">
@@ -50,7 +58,11 @@ const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
 							{product.sizesQty.map(({ size, qty }) => {
 								return (
 									<div
-										style={qty === 0 ? { pointerEvents: "none" } : null}
+										style={
+											qty === 0
+												? { pointerEvents: "none" }
+												: { border: "1px solid rgb(0, 0, 0)" }
+										}
 										className="product-page__size"
 										key={size}
 									>

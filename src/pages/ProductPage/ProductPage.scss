@@ -27,8 +27,8 @@
 .product-page__size {
 	position: relative;
 	border: 1px solid rgba(0, 0, 0, 0.05);
-	width: 40px;
-	padding: 5px 0;
+	min-width: 40px;
+	padding: 5px;
 	border-radius: 10px;
 
 	&:hover {
