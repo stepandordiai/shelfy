@@ -362,5 +362,39 @@
 		],
 		"type": "sneackers",
 		"sex": "mens"
+	},
+	{
+		"id": 11,
+		"name": "Pánské zelené tričko Bekkin 100% bavlna",
+		"img": "https://pepco.cz/wp-content/uploads/2025/08/623614-1440x1744.jpg",
+		"priceCents": 15000,
+		"sizesQty": [
+			{
+				"size": "XS",
+				"qty": 0
+			},
+			{
+				"size": "S",
+				"qty": 0
+			},
+			{
+				"size": "M",
+				"qty": 0
+			},
+			{
+				"size": "L",
+				"qty": 1
+			},
+			{
+				"size": "XL",
+				"qty": 0
+			},
+			{
+				"size": "XXL",
+				"qty": 0
+			}
+		],
+		"type": "t-shirts",
+		"sex": "mens"
 	}
 ]

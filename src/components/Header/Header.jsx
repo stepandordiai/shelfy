@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import cartIcon from "/shopping-bag.png";
 import heartIcon from "/heart.png";
+import userIcon from "/icons/user.png";
 import "./Header.scss";
-import { useState } from "react";
 
 const Header = ({ cart, wish }) => {
 	const showCart = () => {
@@ -44,7 +45,7 @@ const Header = ({ cart, wish }) => {
 							}
 						></span>
 					</button>
-					<NavLink className={"header__logo"} to={"/"}>
+					<NavLink className={"header__logo"} to="/">
 						Shelfy
 					</NavLink>
 					<nav className="header__nav">
@@ -65,13 +66,16 @@ const Header = ({ cart, wish }) => {
 						<NavLink className="header__nav-link">Accessories</NavLink>
 					</nav>
 					<div className="header__right-section">
-						<NavLink className={"header__wish"} to={"/wish"}>
-							<img src={heartIcon} width={20} alt="" />
+						<NavLink className="header__wish" to="/wish">
+							<img src={heartIcon} width={20} height={20} alt="" />
 
 							{wish.length > 0 && <span>{wish.length}</span>}
 						</NavLink>
+						<NavLink to="/">
+							<img src={userIcon} width={20} height={20} alt="" />
+						</NavLink>
 						<button onClick={showCart} className="header__cart">
-							<img width={20} src={cartIcon} alt="" />
+							<img width={20} height={20} src={cartIcon} alt="" />
 							{cart.length > 0 && <span>{cart.length}</span>}
 						</button>
 					</div>
