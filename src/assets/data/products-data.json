@@ -379,11 +379,11 @@
 			},
 			{
 				"size": "M",
-				"qty": 0
+				"qty": 1
 			},
 			{
 				"size": "L",
-				"qty": 1
+				"qty": 0
 			},
 			{
 				"size": "XL",
@@ -395,6 +395,56 @@
 			}
 		],
 		"type": "t-shirts",
+		"sex": "mens"
+	},
+	{
+		"id": 12,
+		"name": "ZÁKLADNÍ TENISKY",
+		"img": "https://static.zara.net/assets/public/1074/6ae9/0dc9421cba54/43664f432151/12200520800-e1/12200520800-e1.jpg?ts=1728569700319&w=850",
+		"priceCents": 8900,
+		"sizesQty": [
+			{
+				"size": "36",
+				"qty": 0
+			},
+			{
+				"size": "37",
+				"qty": 0
+			},
+			{
+				"size": "38",
+				"qty": 0
+			},
+			{
+				"size": "39",
+				"qty": 0
+			},
+			{
+				"size": "40",
+				"qty": 0
+			},
+			{
+				"size": "41",
+				"qty": 0
+			},
+			{
+				"size": "42",
+				"qty": 0
+			},
+			{
+				"size": "43",
+				"qty": 0
+			},
+			{
+				"size": "44",
+				"qty": 1
+			},
+			{
+				"size": "45",
+				"qty": 0
+			}
+		],
+		"type": "sneackers",
 		"sex": "mens"
 	}
 ]
