@@ -9,6 +9,7 @@ import productsData from "./assets/data/products-data.json";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ScrollToTop from "./utils/ScrollToTop";
 import "./scss/App.scss";
+import Login from "./pages/Login/Login";
 
 function App() {
 	const [cart, setCart] = useState([]);
@@ -75,7 +76,7 @@ function App() {
 					}
 				/>
 				<Route path="/wish" element={<Wish wish={wish} setWish={setWish} />} />
-
+				<Route path="/login" element={<Login />} />
 				<Route
 					path="/product-page/:id"
 					element={

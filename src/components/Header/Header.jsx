@@ -71,7 +71,7 @@ const Header = ({ cart, wish }) => {
 
 							{wish.length > 0 && <span>{wish.length}</span>}
 						</NavLink>
-						<NavLink to="/">
+						<NavLink to="/login">
 							<img src={userIcon} width={20} height={20} alt="" />
 						</NavLink>
 						<button onClick={showCart} className="header__cart">
