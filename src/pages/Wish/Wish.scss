@@ -1,0 +1,39 @@
+.wish {
+	padding: 80px 30px 30px 30px;
+}
+
+.wish-title {
+	font-size: 2rem;
+}
+
+.wish__item {
+	display: flex;
+	padding-bottom: 10px;
+	color: #000;
+
+	&:not(:nth-last-child(1)) {
+		border-bottom: 1px solid hsl(0, 0%, 90%);
+	}
+}
+
+.wish__item-details {
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.wish__item-details-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	height: 100%;
+}
+
+@media screen and (width <= 808px) {
+	.wish {
+		padding: 80px 10px 10px 10px;
+	}
+}

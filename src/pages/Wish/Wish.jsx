@@ -1,22 +1,46 @@
+import trashIcon from "/delete.png";
+import { NavLink } from "react-router-dom";
 import "./Wish.scss";
 
-const Wish = ({ wish }) => {
+const Wish = ({ wish, setWish }) => {
+	const removeWishProduct = (id) => {
+		setWish((prev) => prev.filter((product) => product.id !== id));
+	};
+
 	return (
-		<>
-			<main>
-				<h1>Wish</h1>
-				<div className="cart-products">
-					{wish.map((el, index) => {
-						return (
-							<div key={index}>
-								<img src={el.img} alt="" />
-								<p>{el.name}</p>
+		<main className="wish">
+			<h1 className="wish-title">Wish</h1>
+			<div className="cart-products">
+				{wish.map((product) => {
+					return (
+						<NavLink
+							to={`/product-page/${product.id}`}
+							key={product.id}
+							className="wish__item"
+						>
+							<img width={120} src={product.img} alt="" />
+							<div className="wish__item-details">
+								<div className="wish__item-details-left">
+									<div>
+										<p>{product.name}</p>
+										<p>€ {product.priceCents / 100}</p>
+									</div>
+								</div>
+								<button
+									onClick={(e) => {
+										e.preventDefault();
+										e.stopPropagation();
+										removeWishProduct(product.id);
+									}}
+								>
+									<img src={trashIcon} width={20} height={20} alt="" />
+								</button>
 							</div>
-						);
-					})}
-				</div>
-			</main>
-		</>
+						</NavLink>
+					);
+				})}
+			</div>
+		</main>
 	);
 };
 

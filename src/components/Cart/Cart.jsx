@@ -172,77 +172,73 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 					Remove all products
 				</button> */}
 						<div className="cart__items">
-							{cart.length === 0 ? (
-								<div style={{ margin: "auto" }}>Your cart is empty</div>
-							) : (
-								cart.map((cartItem) => {
-									return (
-										<div key={cartItem.id} className="cart__item">
-											<img width={120} src={cartItem.img} alt="" />
-											<div className="cart__item-details">
-												<div className="cart__item-details-left">
-													<div>
-														<p>{cartItem.name}</p>
-														<p>€ {cartItem.priceCents / 100}</p>
-														<p>Size: {cartItem.productSize}</p>
-													</div>
-													<button
-														className="cart__wish-btn"
-														onClick={(e) => {
-															// TODO:
-															e.preventDefault(); // Prevent NavLink navigation
-															e.stopPropagation(); // Stop bubbling up the click
-															addToWish(cartItem);
-														}}
-													>
-														{wish.some((item) => item.id == cartItem.id) ? (
-															<img
-																src={heartIconRed}
-																width={20}
-																height={20}
-																alt=""
-															/>
-														) : (
-															<img
-																src={heartIcon}
-																width={20}
-																height={20}
-																alt=""
-															/>
-														)}
-													</button>
-													<div className="cart-qty-container">
-														<button
-															onClick={() =>
-																decrease(cartItem.id, cartItem.productSize)
-															}
-															disabled={cartItem.cartQty === 1}
-														>
-															-
-														</button>
-														<p>{cartItem.cartQty}</p>
-														<button
-															onClick={() =>
-																increase(cartItem.id, cartItem.productSize)
-															}
-															disabled={cartItem.cartQty === 10}
-														>
-															+
-														</button>
-													</div>
+							{cart.map((cartItem) => {
+								return (
+									<div key={cartItem.id} className="cart__item">
+										<img width={120} src={cartItem.img} alt="" />
+										<div className="cart__item-details">
+											<div className="cart__item-details-left">
+												<div>
+													<p>{cartItem.name}</p>
+													<p>€ {cartItem.priceCents / 100}</p>
+													<p>Size: {cartItem.productSize}</p>
 												</div>
 												<button
-													onClick={() =>
-														remove(cartItem.id, cartItem.productSize)
-													}
+													className="cart__wish-btn"
+													onClick={(e) => {
+														// TODO:
+														e.preventDefault(); // Prevent NavLink navigation
+														e.stopPropagation(); // Stop bubbling up the click
+														addToWish(cartItem);
+													}}
 												>
-													<img src={trashIcon} width={20} height={20} alt="" />
+													{wish.some((item) => item.id == cartItem.id) ? (
+														<img
+															src={heartIconRed}
+															width={20}
+															height={20}
+															alt=""
+														/>
+													) : (
+														<img
+															src={heartIcon}
+															width={20}
+															height={20}
+															alt=""
+														/>
+													)}
 												</button>
+												<div className="cart-qty-container">
+													<button
+														onClick={() =>
+															decrease(cartItem.id, cartItem.productSize)
+														}
+														disabled={cartItem.cartQty === 1}
+													>
+														-
+													</button>
+													<p>{cartItem.cartQty}</p>
+													<button
+														onClick={() =>
+															increase(cartItem.id, cartItem.productSize)
+														}
+														disabled={cartItem.cartQty === 10}
+													>
+														+
+													</button>
+												</div>
 											</div>
+											<button
+												onClick={() =>
+													remove(cartItem.id, cartItem.productSize)
+												}
+											>
+												<img src={trashIcon} width={20} height={20} alt="" />
+											</button>
 										</div>
-									);
-								})
-							)}
+									</div>
+								);
+							})}
 						</div>
 						<div className="cart__discount">
 							<p style={{ marginBottom: 10 }}>Discount code?</p>

@@ -74,7 +74,7 @@ function App() {
 						/>
 					}
 				/>
-				<Route path="/wish" element={<Wish wish={wish} />} />
+				<Route path="/wish" element={<Wish wish={wish} setWish={setWish} />} />
 
 				<Route
 					path="/product-page/:id"
