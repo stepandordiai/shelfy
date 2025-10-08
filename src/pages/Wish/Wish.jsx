@@ -10,7 +10,7 @@ const Wish = ({ wish, setWish }) => {
 	return (
 		<main className="wish">
 			<h1 className="wish-title">Wish</h1>
-			<div className="cart-products">
+			<div className="wish__items">
 				{wish.map((product) => {
 					return (
 						<NavLink

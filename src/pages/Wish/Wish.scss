@@ -6,6 +6,13 @@
 	font-size: 2rem;
 }
 
+.wish__items {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex-grow: 1;
+}
+
 .wish__item {
 	display: flex;
 	padding-bottom: 10px;
