@@ -1,9 +1,9 @@
-import heartIcon from "/heart.png";
-import heartIconRed from "/heart-red.png";
-import trashIcon from "/delete.png";
-import closeIcon from "/close.png";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import heartIcon from "/icons/heart.png";
+import heartIconRed from "/icons/heart-red.png";
+import trashIcon from "/icons/delete.png";
+import closeIcon from "/icons/close.png";
 import "./Cart.scss";
 
 const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {

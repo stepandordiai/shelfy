@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import cartIcon from "/shopping-bag.png";
-import heartIcon from "/heart.png";
+import cartIcon from "/icons/shopping-bag.png";
+import heartIcon from "/icons/heart.png";
 import userIcon from "/icons/user.png";
 import "./Header.scss";
 

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
-import heartIcon from "/heart.png";
-import heartIconRed from "/heart-red.png";
+import heartIcon from "/icons/heart.png";
+import heartIconRed from "/icons/heart-red.png";
 import "./Home.scss";
 
 const Home = ({ productsData, addToWish, wish }) => {

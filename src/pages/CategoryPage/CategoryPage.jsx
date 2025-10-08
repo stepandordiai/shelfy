@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import heartIcon from "/heart.png";
-import heartIconRed from "/heart-red.png";
+import heartIcon from "/icons/heart.png";
+import heartIconRed from "/icons/heart-red.png";
 import "./CategoryPage.scss";
 
 const CategoryPage = ({ productsData, addToWish, wish }) => {

@@ -1,5 +1,5 @@
-import trashIcon from "/delete.png";
 import { NavLink } from "react-router-dom";
+import trashIcon from "/icons/delete.png";
 import "./Wish.scss";
 
 const Wish = ({ wish, setWish }) => {
