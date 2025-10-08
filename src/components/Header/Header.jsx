@@ -91,28 +91,6 @@ const Header = ({ cart, wish }) => {
 						{type === "men" && (
 							<>
 								<div className="header__bottom-list-container">
-									<p style={{ fontSize: "1.2rem" }}>Trending</p>
-									<ul>
-										<li>New Product Drops</li>
-										<li>Whitney Simmons</li>
-										<li>Varsity</li>
-										<li>Best Sellers</li>
-										<li>Running</li>
-										<li>Graphics Tees</li>
-										<li>Swimwear</li>
-									</ul>
-								</div>
-								<div className="header__bottom-list-container">
-									<p style={{ fontSize: "1.2rem" }}>Leggins</p>
-									<ul>
-										<li>All Leggins</li>
-										<li>High-Waisted Leggins</li>
-										<li>Scrunch Bum Leggins</li>
-										<li>Black Leggins</li>
-										<li>Flare Leggins</li>
-									</ul>
-								</div>
-								<div className="header__bottom-list-container">
 									<p style={{ fontSize: "1.2rem", marginBottom: 10 }}>
 										Products
 									</p>
@@ -171,26 +149,6 @@ const Header = ({ cart, wish }) => {
 											Bags
 										</NavLink>
 									</div>
-								</div>
-								<div className="header__bottom-list-container">
-									<p style={{ fontSize: "1.2rem" }}>Hello World</p>
-									<ul>
-										<li>Women</li>
-										<li>Women</li>
-										<li>Women</li>
-										<li>Women</li>
-										<li>Women</li>
-									</ul>
-								</div>
-								<div className="header__bottom-list-container">
-									<p style={{ fontSize: "1.2rem" }}>Hello World</p>
-									<ul>
-										<li>Women</li>
-										<li>Women</li>
-										<li>Women</li>
-										<li>Women</li>
-										<li>Women</li>
-									</ul>
 								</div>
 							</>
 						)}
