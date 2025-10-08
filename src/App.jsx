@@ -5,11 +5,11 @@ import { useState } from "react";
 import Cart from "./components/Cart/Cart";
 import Wish from "./pages/Wish/Wish";
 import ProductPage from "./pages/ProductPage/ProductPage";
-import productsData from "./assets/data/products-data.json";
+import productsData from "./data/products-data.json";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ScrollToTop from "./utils/ScrollToTop";
-import "./scss/App.scss";
 import Login from "./pages/Login/Login";
+import "./scss/App.scss";
 
 function App() {
 	const [cart, setCart] = useState([]);
