@@ -10,6 +10,7 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ScrollToTop from "./utils/ScrollToTop";
 import Login from "./pages/Login/Login";
 import "./scss/App.scss";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 	const [cart, setCart] = useState([]);
@@ -105,6 +106,7 @@ function App() {
 				addToWish={addToWish}
 				hideCart={hideCart}
 			/>
+			<Footer />
 		</Router>
 	);
 }
