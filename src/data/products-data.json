@@ -196,5 +196,21 @@
 		],
 		"type": "sneackers",
 		"sex": "mens"
+	},
+	{
+		"id": 13,
+		"name": "Bodysuit",
+		"img": "https://api.newyorker.de/csp/images/image/public/e28d0c5a78d5704fdebf424c768a4bf3.png?res=mid",
+		"priceCents": 499,
+		"sizesQty": [
+			{ "size": "XS", "qty": 1 },
+			{ "size": "S", "qty": 0 },
+			{ "size": "M", "qty": 0 },
+			{ "size": "L", "qty": 0 },
+			{ "size": "XL", "qty": 0 },
+			{ "size": "XXL", "qty": 0 }
+		],
+		"type": "tops",
+		"sex": "womens"
 	}
 ]
