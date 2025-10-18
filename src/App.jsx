@@ -9,12 +9,13 @@ import productsData from "./data/products-data.json";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ScrollToTop from "./utils/ScrollToTop";
 import Login from "./pages/Login/Login";
-import "./scss/App.scss";
 import Footer from "./components/Footer/Footer";
+import "./scss/App.scss";
 
 function App() {
 	const [cart, setCart] = useState([]);
 	const [wish, setWish] = useState([]);
+	const [isCartVisible, setIsCartVisible] = useState(false);
 
 	function addToCart(item, size, setNotSelectedSizeError) {
 		if (!size) {
@@ -31,11 +32,11 @@ function App() {
 		const exists = cart.some((i) => i.id === item.id && i.productSize === size);
 
 		if (exists) {
-			openCart();
+			setIsCartVisible(true);
 		} else {
 			setCart((prev) => [...prev, { ...item, cartQty: 1, productSize: size }]);
 			setTimeout(() => {
-				openCart();
+				setIsCartVisible(true);
 			}, 1500);
 		}
 	}
@@ -44,27 +45,19 @@ function App() {
 		const exists = wish.some((i) => i.id === item.id);
 
 		if (exists) {
-			openCart();
+			setIsCartVisible(true);
 		}
 		setWish((prev) => [...prev, item]);
 	}
 
-	const openCart = () => {
-		document.querySelector(".cart").classList.add("cart--active");
-		document.querySelector(".curtain").classList.add("curtain--active");
-	};
-
-	const hideCart = () => {
-		document.querySelector(".cart").classList.remove("cart--active");
-		document.querySelector(".curtain").classList.remove("curtain--active");
-	};
-
 	return (
 		<Router>
 			<ScrollToTop />
-			<div className="main-curtain"></div>
-			<div onClick={hideCart} className="curtain"></div>
-			<Header cart={cart} wish={wish} />
+			<div
+				onClick={() => setIsCartVisible(false)}
+				className={isCartVisible ? "curtain curtain--active" : "curtain"}
+			></div>
+			<Header cart={cart} wish={wish} setIsCartVisible={setIsCartVisible} />
 			<Routes>
 				<Route
 					path="/"
@@ -104,7 +97,8 @@ function App() {
 				setCart={setCart}
 				wish={wish}
 				addToWish={addToWish}
-				hideCart={hideCart}
+				isCartVisible={isCartVisible}
+				setIsCartVisible={setIsCartVisible}
 			/>
 			<Footer />
 		</Router>

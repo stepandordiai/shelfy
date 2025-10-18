@@ -6,7 +6,14 @@ import trashIcon from "/icons/delete.png";
 import closeIcon from "/icons/close.png";
 import "./Cart.scss";
 
-const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
+const Cart = ({
+	cart,
+	setCart,
+	wish,
+	addToWish,
+	isCartVisible,
+	setIsCartVisible,
+}) => {
 	// const decrease = (id) => {
 	// 	setCart((prevCart) =>
 	// 		prevCart.map((el) => {
@@ -119,10 +126,13 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 	}, [totalPrice]);
 
 	return (
-		<div className="cart">
+		<div className={isCartVisible ? "cart cart--active" : "cart"}>
 			<div className="cart__header">
 				<p className="cart__title">Cart</p>
-				<button onClick={hideCart} className="cart__header-close-btn">
+				<button
+					onClick={() => setIsCartVisible(false)}
+					className="cart__header-close-btn"
+				>
 					<img src={closeIcon} width={25} alt="" />
 				</button>
 			</div>
@@ -151,16 +161,16 @@ const Cart = ({ cart, setCart, wish, addToWish, hideCart }) => {
 				<div className="cart__empty-container">
 					<p>Your cart is empty</p>
 					<NavLink
-						onClick={hideCart}
+						onClick={() => setIsCartVisible(false)}
 						className="cart__link"
 						to="/category/all/mens"
 					>
 						Shop Mens
 					</NavLink>
 					<NavLink
-						onClick={hideCart}
+						onClick={() => setIsCartVisible(false)}
 						className="cart__link"
-						to="/category/all/mens"
+						to="/category/all/womens"
 					>
 						Shop Womens
 					</NavLink>

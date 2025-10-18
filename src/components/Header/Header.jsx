@@ -5,13 +5,8 @@ import heartIcon from "/icons/heart.png";
 import userIcon from "/icons/user.png";
 import "./Header.scss";
 
-const Header = ({ cart, wish }) => {
-	const showCart = () => {
-		document.querySelector(".cart").classList.add("cart--active");
-		document.querySelector(".curtain").classList.add("curtain--active");
-	};
-
-	const [isVisible, setIsVisible] = useState(false);
+const Header = ({ cart, wish, setIsCartVisible }) => {
+	const [isHeaderNavVisible, setIsHeaderNavVisible] = useState(false);
 	const [type, setType] = useState("");
 	const [menuActive, setMenuActive] = useState(false);
 
@@ -20,11 +15,8 @@ const Header = ({ cart, wish }) => {
 	};
 
 	const handleVisibility = (props, type) => {
-		setIsVisible(props);
-		setType((prev) => (prev = type));
-		document
-			.querySelector(".main-curtain")
-			.classList.toggle("main-curtain--active", props);
+		setIsHeaderNavVisible(props);
+		setType(type);
 	};
 
 	return (
@@ -74,7 +66,10 @@ const Header = ({ cart, wish }) => {
 						<NavLink to="/login">
 							<img src={userIcon} width={20} height={20} alt="" />
 						</NavLink>
-						<button onClick={showCart} className="header__cart">
+						<button
+							onClick={() => setIsCartVisible(true)}
+							className="header__cart"
+						>
 							<img width={20} height={20} src={cartIcon} alt="" />
 							{cart.length > 0 && <span>{cart.length}</span>}
 						</button>
@@ -84,7 +79,7 @@ const Header = ({ cart, wish }) => {
 					onMouseEnter={() => handleVisibility(true, type)}
 					onMouseLeave={() => handleVisibility(false, type)}
 					className={`header__bottom ${
-						isVisible ? "header__bottom--active" : ""
+						isHeaderNavVisible ? "header__bottom--active" : ""
 					}`}
 				>
 					<div className="header__bottom-container">
@@ -225,6 +220,13 @@ const Header = ({ cart, wish }) => {
 					</div>
 				</div>
 			</div>
+			<div
+				className={
+					isHeaderNavVisible
+						? "main-curtain main-curtain--active"
+						: "main-curtain"
+				}
+			></div>
 		</>
 	);
 };
