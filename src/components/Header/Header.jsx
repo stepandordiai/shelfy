@@ -1,9 +1,26 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import productsData from "./../../data/products-data.json";
+import { NavLink } from "react-router-dom";
 import cartIcon from "/icons/shopping-bag.png";
 import heartIcon from "/icons/heart.png";
 import userIcon from "/icons/user.png";
 import "./Header.scss";
+
+const uniqueWomensTypes = [
+	...new Set(
+		productsData
+			.filter((product) => product.sex === "womens")
+			.map((product) => product.type)
+	),
+];
+
+const uniqueMensTypes = [
+	...new Set(
+		productsData
+			.filter((product) => product.sex === "mens")
+			.map((product) => product.type)
+	),
+];
 
 const Header = ({ cart, wish, setIsCartVisible }) => {
 	const [isHeaderNavVisible, setIsHeaderNavVisible] = useState(false);
@@ -25,19 +42,15 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 				<div className="header__top">
 					<button
 						onClick={handleMenuActive}
-						className={
-							menuActive ? "burger-btn burger-btn--active" : "burger-btn"
-						}
+						className={`burger-btn ${menuActive ? "burger-btn--active" : ""}`}
 					>
 						<span
-							className={
-								menuActive
-									? "burger-btn__center-line burger-btn__center-line--active"
-									: "burger-btn__center-line"
-							}
+							className={`burger-btn__center-line ${
+								menuActive ? "burger-btn__center-line--active" : ""
+							}`}
 						></span>
 					</button>
-					<NavLink className={"header__logo"} to="/">
+					<NavLink className="header__logo" to="/">
 						Shelfy
 					</NavLink>
 					<nav className="header__nav">
@@ -84,73 +97,59 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 				>
 					<div className="header__bottom-container">
 						{type === "men" && (
-							<>
-								<div className="header__bottom-list-container">
-									<p style={{ fontSize: "1.2rem", marginBottom: 10 }}>
-										Products
-									</p>
-									<div className="header-bottom__nav-list">
-										<NavLink
-											onClick={() => handleVisibility(false, "men")}
-											className="header-bottom__nav-link"
-											to="/category/all/mens"
-										>
-											All products
-										</NavLink>
-										<NavLink
-											onClick={() => handleVisibility(false, "men")}
-											className="header-bottom__nav-link"
-											to="/category/t-shirts/mens"
-										>
-											T-Shirts
-										</NavLink>
-										<NavLink
-											onClick={() => handleVisibility(false, "men")}
-											className="header-bottom__nav-link"
-											to="/category/shorts/mens"
-										>
-											Shorts
-										</NavLink>
-										<NavLink
-											onClick={() => handleVisibility(false, "men")}
-											className="header-bottom__nav-link"
-											to="/category/sneackers/mens"
-										>
-											Sneackers
-										</NavLink>
-									</div>
+							<div className="header__bottom-list-container">
+								<p style={{ fontSize: "1.2rem", marginBottom: 10 }}>Products</p>
+								<div className="header-bottom__nav-list">
+									<NavLink
+										onClick={() => handleVisibility(false, "men")}
+										className="header-bottom__nav-link"
+										to="/category/all/mens"
+									>
+										All products
+									</NavLink>
+									{uniqueMensTypes.map((type) => {
+										return (
+											<NavLink
+												onClick={() => handleVisibility(false, "men")}
+												className="header-bottom__nav-link"
+												to={`/category/${type}/mens`}
+											>
+												{type[0].toUpperCase() + type.slice(1)}
+											</NavLink>
+										);
+									})}
 								</div>
-							</>
+							</div>
 						)}
 						{type === "women" && (
-							<>
-								<div className="header__bottom-list-container">
-									<p style={{ fontSize: "1.2rem", marginBottom: 10 }}>
-										Products
-									</p>
-									<div className="header-bottom__nav-list">
-										<NavLink
-											onClick={() => handleVisibility(false, "women")}
-											className="header-bottom__nav-link"
-											to="/category/all/womens"
-										>
-											All products
-										</NavLink>
-										<NavLink
-											onClick={() => handleVisibility(false, "women")}
-											className="header-bottom__nav-link"
-											to="/category/bags/womens"
-										>
-											Bags
-										</NavLink>
-									</div>
+							<div className="header__bottom-list-container">
+								<p style={{ fontSize: "1.2rem", marginBottom: 10 }}>Products</p>
+								<div className="header-bottom__nav-list">
+									<NavLink
+										onClick={() => handleVisibility(false, "women")}
+										className="header-bottom__nav-link"
+										to="/category/all/womens"
+									>
+										All products
+									</NavLink>
+									{uniqueWomensTypes.map((type) => {
+										return (
+											<NavLink
+												onClick={() => handleVisibility(false, "women")}
+												className="header-bottom__nav-link"
+												to={`/category/${type}/womens`}
+											>
+												{type[0].toUpperCase() + type.slice(1)}
+											</NavLink>
+										);
+									})}
 								</div>
-							</>
+							</div>
 						)}
 					</div>
 				</div>
 			</header>
-			<div className={menuActive ? "menu menu--active" : "menu"}>
+			<div className={`menu ${menuActive ? "menu--active" : ""}`}>
 				<div className="menu-container">
 					<button className="menu__btn">Mens</button>
 					<div className="menu__dd">
@@ -164,33 +163,19 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 							>
 								All products
 							</NavLink>
-							<NavLink
-								onClick={() => {
-									setMenuActive(false);
-								}}
-								className="header-bottom__nav-link"
-								to="/category/t-shirts/mens"
-							>
-								T-Shirts
-							</NavLink>
-							<NavLink
-								onClick={() => {
-									setMenuActive(false);
-								}}
-								className="header-bottom__nav-link"
-								to="/category/shorts/mens"
-							>
-								Shorts
-							</NavLink>
-							<NavLink
-								onClick={() => {
-									setMenuActive(false);
-								}}
-								className="header-bottom__nav-link"
-								to="/category/sneackers/mens"
-							>
-								Sneackers
-							</NavLink>
+							{uniqueMensTypes.map((type) => {
+								return (
+									<NavLink
+										onClick={() => {
+											setMenuActive(false);
+										}}
+										className="header-bottom__nav-link"
+										to={`/category/${type}/mens`}
+									>
+										{type[0].toUpperCase() + type.slice(1)}
+									</NavLink>
+								);
+							})}
 						</div>
 					</div>
 				</div>
@@ -207,25 +192,27 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 							>
 								All products
 							</NavLink>
-							<NavLink
-								onClick={() => {
-									setMenuActive(false);
-								}}
-								className="header-bottom__nav-link"
-								to="/category/bags/womens"
-							>
-								Bags
-							</NavLink>
+							{uniqueWomensTypes.map((type) => {
+								return (
+									<NavLink
+										onClick={() => {
+											setMenuActive(false);
+										}}
+										className="header-bottom__nav-link"
+										to={`/category/${type}/womens`}
+									>
+										{type[0].toUpperCase() + type.slice(1)}
+									</NavLink>
+								);
+							})}
 						</div>
 					</div>
 				</div>
 			</div>
 			<div
-				className={
-					isHeaderNavVisible
-						? "main-curtain main-curtain--active"
-						: "main-curtain"
-				}
+				className={`main-curtain ${
+					isHeaderNavVisible ? "main-curtain--active" : ""
+				}`}
 			></div>
 		</>
 	);

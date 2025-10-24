@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import productsata from "./../../data/products-data.json";
+import productsData from "./../../data/products-data.json";
 import "./Footer.scss";
 
 const uniqueWomensTypes = [
 	...new Set(
-		productsata
+		productsData
 			.filter((product) => product.sex === "womens")
 			.map((product) => product.type)
 	),
@@ -12,7 +12,7 @@ const uniqueWomensTypes = [
 
 const uniqueMensTypes = [
 	...new Set(
-		productsata
+		productsData
 			.filter((product) => product.sex === "mens")
 			.map((product) => product.type)
 	),
