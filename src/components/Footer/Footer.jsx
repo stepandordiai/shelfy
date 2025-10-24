@@ -1,5 +1,22 @@
 import { NavLink } from "react-router-dom";
+import productsata from "./../../data/products-data.json";
 import "./Footer.scss";
+
+const uniqueWomensTypes = [
+	...new Set(
+		productsata
+			.filter((product) => product.sex === "womens")
+			.map((product) => product.type)
+	),
+];
+
+const uniqueMensTypes = [
+	...new Set(
+		productsata
+			.filter((product) => product.sex === "mens")
+			.map((product) => product.type)
+	),
+];
 
 const Footer = () => {
 	return (
@@ -14,15 +31,17 @@ const Footer = () => {
 						<NavLink className="footer-nav__link" to="/category/all/mens">
 							All products
 						</NavLink>
-						<NavLink className="footer-nav__link" to="/category/t-shirts/mens">
-							T-Shirts
-						</NavLink>
-						<NavLink className="footer-nav__link" to="/category/shorts/mens">
-							Shorts
-						</NavLink>
-						<NavLink className="footer-nav__link" to="/category/sneackers/mens">
-							Sneackers
-						</NavLink>
+						{uniqueMensTypes.map((type) => {
+							return (
+								<NavLink
+									className="footer-nav__link"
+									to={`/category/${type}/mens`}
+								>
+									{/* Make the first letter Capitalize */}
+									{type[0].toUpperCase() + type.slice(1)}
+								</NavLink>
+							);
+						})}
 					</div>
 				</div>
 				<div className="menu-container">
@@ -34,9 +53,16 @@ const Footer = () => {
 							<NavLink className="footer-nav__link" to="/category/all/womens">
 								All products
 							</NavLink>
-							<NavLink className="footer-nav__link" to="/category/bags/womens">
-								Bags
-							</NavLink>
+							{uniqueWomensTypes.map((type) => {
+								return (
+									<NavLink
+										className="footer-nav__link"
+										to={`/category/${type}/womens`}
+									>
+										{type[0].toUpperCase() + type.slice(1)}
+									</NavLink>
+								);
+							})}
 						</div>
 					</div>
 				</div>
