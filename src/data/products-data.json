@@ -212,5 +212,42 @@
 		],
 		"type": "tops",
 		"sex": "womens"
+	},
+	{
+		"id": 14,
+		"name": "Champion Basic",
+		"img": "https://www.sportvision.cz/files/thumbs/files/images/slike_proizvoda/media/CHA/CHA241M125-01/images/thumbs_600/CHA241M125-01_600_600px.jpg",
+		"priceCents": 1199,
+		"sizesQty": [
+			{ "size": "XS", "qty": 0 },
+			{ "size": "S", "qty": 0 },
+			{ "size": "M", "qty": 1 },
+			{ "size": "L", "qty": 0 },
+			{ "size": "XL", "qty": 0 },
+			{ "size": "XXL", "qty": 0 }
+		],
+		"type": "pants",
+		"sex": "mens"
+	},
+	{
+		"id": 15,
+		"name": "Plush Bathrobe",
+		"img": "https://cdn.media.amplience.net/i/primark/991143210706_05?$articleimages-largedesktop$&fmt=auto",
+		"priceCents": 1500,
+		"sizesQty": [
+			{ "size": "S/M", "qty": 1 },
+			{ "size": "L/XL", "qty": 0 }
+		],
+		"type": "pajamas",
+		"sex": "mens"
+	},
+	{
+		"id": 16,
+		"name": "Tommy Hilfiger",
+		"img": "https://img.eobuwie.cloud/product(4/a/d/e/4ade774aa153f71d0f11ad21060d1840d898f88e_20_8721185083955.jpg,webp)/brasna-tommy-hilfiger-am0am13493-cerna-8721185083955.webp",
+		"priceCents": 3090,
+		"sizesQty": [{ "size": "One size", "qty": 1 }],
+		"type": "bags",
+		"sex": "mens"
 	}
 ]
