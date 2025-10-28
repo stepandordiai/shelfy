@@ -31,9 +31,10 @@ const Footer = () => {
 						<NavLink className="footer-nav__link" to="/category/all/mens">
 							All products
 						</NavLink>
-						{uniqueMensTypes.map((type) => {
+						{uniqueMensTypes.map((type, index) => {
 							return (
 								<NavLink
+									key={index}
 									className="footer-nav__link"
 									to={`/category/${type}/mens`}
 								>
@@ -53,9 +54,10 @@ const Footer = () => {
 							<NavLink className="footer-nav__link" to="/category/all/womens">
 								All products
 							</NavLink>
-							{uniqueWomensTypes.map((type) => {
+							{uniqueWomensTypes.map((type, index) => {
 								return (
 									<NavLink
+										key={index}
 										className="footer-nav__link"
 										to={`/category/${type}/womens`}
 									>

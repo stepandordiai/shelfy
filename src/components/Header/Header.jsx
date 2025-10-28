@@ -107,9 +107,10 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 									>
 										All products
 									</NavLink>
-									{uniqueMensTypes.map((type) => {
+									{uniqueMensTypes.map((type, index) => {
 										return (
 											<NavLink
+												key={index}
 												onClick={() => handleVisibility(false, "men")}
 												className="header-bottom__nav-link"
 												to={`/category/${type}/mens`}
@@ -132,9 +133,10 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 									>
 										All products
 									</NavLink>
-									{uniqueWomensTypes.map((type) => {
+									{uniqueWomensTypes.map((type, index) => {
 										return (
 											<NavLink
+												key={index}
 												onClick={() => handleVisibility(false, "women")}
 												className="header-bottom__nav-link"
 												to={`/category/${type}/womens`}
@@ -163,9 +165,10 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 							>
 								All products
 							</NavLink>
-							{uniqueMensTypes.map((type) => {
+							{uniqueMensTypes.map((type, index) => {
 								return (
 									<NavLink
+										key={index}
 										onClick={() => {
 											setMenuActive(false);
 										}}
@@ -192,9 +195,10 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 							>
 								All products
 							</NavLink>
-							{uniqueWomensTypes.map((type) => {
+							{uniqueWomensTypes.map((type, index) => {
 								return (
 									<NavLink
+										key={index}
 										onClick={() => {
 											setMenuActive(false);
 										}}

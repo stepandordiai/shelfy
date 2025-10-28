@@ -11,36 +11,40 @@ const Wish = ({ wish, setWish }) => {
 	return (
 		<main className="wish">
 			<h1 className="wish-title">Wish</h1>
-			<div className="wish__items">
-				{wish.map((product) => {
-					return (
-						<NavLink
-							to={`/product-page/${product.id}`}
-							key={product.id}
-							className="wish__item"
-						>
-							<img width={120} src={product.img} alt="" />
-							<div className="wish__item-details">
-								<div className="wish__item-details-left">
-									<div>
-										<p>{product.name}</p>
-										<p>€ {fixedPrice(product.priceCents / 100)}</p>
+			{wish.length ? (
+				<div className="wish__items">
+					{wish.map((product) => {
+						return (
+							<NavLink
+								to={`/product-page/${product.id}`}
+								key={product.id}
+								className="wish__item"
+							>
+								<img width={120} src={product.img} alt="" />
+								<div className="wish__item-details">
+									<div className="wish__item-details-left">
+										<div>
+											<p>{product.name}</p>
+											<p>€ {fixedPrice(product.priceCents / 100)}</p>
+										</div>
 									</div>
+									<button
+										onClick={(e) => {
+											e.preventDefault();
+											e.stopPropagation();
+											removeWishProduct(product.id);
+										}}
+									>
+										<img src={trashIcon} width={20} height={20} alt="" />
+									</button>
 								</div>
-								<button
-									onClick={(e) => {
-										e.preventDefault();
-										e.stopPropagation();
-										removeWishProduct(product.id);
-									}}
-								>
-									<img src={trashIcon} width={20} height={20} alt="" />
-								</button>
-							</div>
-						</NavLink>
-					);
-				})}
-			</div>
+							</NavLink>
+						);
+					})}
+				</div>
+			) : (
+				<div>Wish is empty</div>
+			)}
 		</main>
 	);
 };
