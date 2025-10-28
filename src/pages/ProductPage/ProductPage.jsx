@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import fixedPrice from "../../utils/fixedPrice";
 import "./ProductPage.scss";
 
-const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
+const ProductPage = ({ productsData, cart, addToCart }) => {
 	const { id } = useParams();
 	const [chosenSize, setChozenSize] = useState("");
 
@@ -35,7 +36,7 @@ const ProductPage = ({ productsData, wish, cart, addToCart, addToWish }) => {
 				</div>
 				<div className="product-page__details">
 					<h1 className="product-page__details-title">{product.name}</h1>
-					<p>€{product.priceCents / 100}</p>
+					<p>€ {fixedPrice(product.priceCents / 100)}</p>
 					<div>
 						<div
 							style={{

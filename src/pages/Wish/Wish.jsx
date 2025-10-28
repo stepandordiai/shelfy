@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import fixedPrice from "../../utils/fixedPrice";
 import trashIcon from "/icons/delete.png";
 import "./Wish.scss";
 
@@ -23,7 +24,7 @@ const Wish = ({ wish, setWish }) => {
 								<div className="wish__item-details-left">
 									<div>
 										<p>{product.name}</p>
-										<p>€ {product.priceCents / 100}</p>
+										<p>€ {fixedPrice(product.priceCents / 100)}</p>
 									</div>
 								</div>
 								<button

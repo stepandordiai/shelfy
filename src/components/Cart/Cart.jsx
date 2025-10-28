@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import fixedPrice from "../../utils/fixedPrice";
 import heartIcon from "/icons/heart.png";
 import heartIconRed from "/icons/heart-red.png";
 import trashIcon from "/icons/delete.png";
@@ -114,7 +115,7 @@ const Cart = ({
 	const freeDelivery = 75;
 
 	const checkDelivery = () => {
-		return freeDelivery - totalPrice;
+		return fixedPrice(freeDelivery - totalPrice);
 	};
 
 	useEffect(() => {
@@ -190,7 +191,7 @@ const Cart = ({
 											<div className="cart__item-details-left">
 												<div>
 													<p>{cartItem.name}</p>
-													<p>€ {cartItem.priceCents / 100}</p>
+													<p>€ {fixedPrice(cartItem.priceCents / 100)}</p>
 													<p>Size: {cartItem.productSize}</p>
 												</div>
 												<button
@@ -266,11 +267,13 @@ const Cart = ({
 						<div className="cart__summary">
 							<p style={{ display: "flex", justifyContent: "space-between" }}>
 								<span>Sub Total</span>
-								<span>€ {totalPrice}</span>
+								<span>€ {fixedPrice(totalPrice)}</span>
 							</p>
 							<p style={{ display: "flex", justifyContent: "space-between" }}>
 								<span>Shipping</span>
-								<span>{checkDelivery() > 0 ? "€ 5" : "Free"}</span>
+								<span>
+									{checkDelivery() > 0 ? `€ ${deliveryPrice}` : "Free"}
+								</span>
 							</p>
 							<strong
 								style={{ display: "flex", justifyContent: "space-between" }}
@@ -279,8 +282,8 @@ const Cart = ({
 								<span>
 									€{" "}
 									{checkDelivery() > 0
-										? totalPrice + deliveryPrice
-										: totalPrice}
+										? fixedPrice(totalPrice + deliveryPrice)
+										: fixedPrice(totalPrice)}
 								</span>
 							</strong>
 						</div>

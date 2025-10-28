@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import fixedPrice from "../../utils/fixedPrice";
 import heartIcon from "/icons/heart.png";
 import heartIconRed from "/icons/heart-red.png";
 import "./CategoryPage.scss";
@@ -53,7 +54,7 @@ const CategoryPage = ({ productsData, addToWish, wish }) => {
 									</button>
 								</div>
 								<p style={{ marginTop: "10px" }}>{el.name}</p>
-								<p>$ {el.priceCents / 100}</p>
+								<p>€ {fixedPrice(el.priceCents / 100)}</p>
 							</NavLink>
 						);
 					})}
