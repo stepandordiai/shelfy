@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import fixedPrice from "../../utils/fixedPrice";
 import heartIcon from "/icons/heart.png";
@@ -7,6 +7,30 @@ import trashIcon from "/icons/delete.png";
 import closeIcon from "/icons/close.png";
 import "./Cart.scss";
 
+type Cart = {
+	cartQty: number;
+	id: number;
+	img: string;
+	name: string;
+	priceCents: number;
+	productSize: string;
+	sex: string;
+	sizesQty: {
+		size: string;
+		qty: number;
+	};
+	type: string;
+};
+
+type CartProps = {
+	cart: Cart[];
+	setCart: React.Dispatch<React.SetStateAction<Cart[]>>;
+	wish: Cart[];
+	addToWish: (item: Cart) => void;
+	isCartVisible: boolean;
+	setIsCartVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
 const Cart = ({
 	cart,
 	setCart,
@@ -14,94 +38,53 @@ const Cart = ({
 	addToWish,
 	isCartVisible,
 	setIsCartVisible,
-}) => {
-	// const decrease = (id) => {
-	// 	setCart((prevCart) =>
-	// 		prevCart.map((el) => {
-	// 			if (el.id === id) {
-	// 				if (el.cartQty > 1) {
-	// 					return { ...el, cartQty: el.cartQty - 1 };
-	// 				} else {
-	// 					return el;
-	// 				}
-	// 			}
-	// 		})
-	// 	);
-	// };
+}: CartProps) => {
+	const [checkoutBtnDisabled, setCheckoutBtnDisabled] = useState(false);
+	const [discountBtnActive, setDiscountBtnActive] = useState(false);
 
-	// const increase = (id) => {
-	// 	setCart((prevCart) =>
-	// 		prevCart.map((el) =>
-	// 			el.id === id ? { ...el, cartQty: el.cartQty + 1 } : el
-	// 		)
-	// 	);
-	// };
-
-	// const handleItemQty = (id, value) => {
-	// 	setCart((prevCart) =>
-	// 		prevCart.map((el) =>
-	// 			el.id === id ? { ...el, cartQty: Number(value) } : el
-	// 		)
-	// 	);
-	// };
-
-	const decrease = (id, size) => {
-		setCart((prevCart) =>
-			prevCart.map((el) =>
-				el.id === id && el.productSize === size
-					? { ...el, cartQty: el.cartQty - 1 }
-					: el
+	const decreaseItemQty = (id: number, size: string) => {
+		setCart((prev) =>
+			prev.map((item) =>
+				// TODO:
+				item.id === id && item.productSize === size
+					? { ...item, cartQty: item.cartQty - 1 }
+					: item
 			)
 		);
 	};
 
-	const increase = (id, size) => {
-		setCart((prevCart) =>
-			prevCart.map((el) =>
-				el.id === id && el.productSize === size
-					? { ...el, cartQty: el.cartQty + 1 }
-					: el
+	const increaseItemQty = (id: number, size: string) => {
+		setCart((prev) =>
+			prev.map((item) =>
+				item.id === id && item.productSize === size
+					? { ...item, cartQty: item.cartQty + 1 }
+					: item
 			)
 		);
 	};
 
-	const remove = (id, size) => {
-		setCart((prevCart) =>
-			prevCart.filter((el) => el.id !== id || el.productSize !== size)
+	const removeItem = (id: number, size: string) => {
+		setCart((prev) =>
+			// TODO:
+			prev.filter((item) => item.id !== id || item.productSize !== size)
 		);
 	};
 
-	// setCart((prevCart) => (prevCart = [])); mine
-	// const removeCart = () => {
-	// 	setCart([]);
-	// };
-
-	const handleCheckout = (e) => {
-		e.target.innerHTML = "Checkout is disabled on this site.";
-		e.target.style.backgroundColor = "#f00";
-		e.target.disabled = true;
-		e.target.style.cursor = "not-allowed";
+	const handleCheckoutBtnDisabled = () => {
+		setCheckoutBtnDisabled(true);
 
 		setTimeout(() => {
-			e.target.innerHTML = "Checkout";
-			e.target.style.backgroundColor = "#000";
-			e.target.disabled = false;
-			e.target.style.cursor = "pointer";
+			setCheckoutBtnDisabled(false);
 		}, 3000);
 	};
 
-	const handleDiscount = (e) => {
+	const handleDiscountForm = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		e.target.style.backgroundColor = "rgba(255, 0, 0, 0.05)";
-		const parent = e.target.parentNode;
-		const invalidDiscountTxt = parent.querySelector("span");
-		// TODO:
-		if (!invalidDiscountTxt) {
-			parent.insertAdjacentHTML(
-				"beforeend",
-				"<span>The discount code is invalid or not applicable.</span>"
-			);
-		}
+		setDiscountBtnActive(true);
+
+		setTimeout(() => {
+			setDiscountBtnActive(false);
+		}, 3000);
 	};
 
 	const totalPrice = cart.reduce(
@@ -109,22 +92,12 @@ const Cart = ({
 		0
 	);
 
-	// const totalItems = cart.reduce((sum, item) => sum + item.cartQty, 0);
-
 	const deliveryPrice = 5;
 	const freeDelivery = 75;
 
-	const checkDelivery = () => {
-		return fixedPrice(freeDelivery - totalPrice);
-	};
+	console.log(cart);
 
-	useEffect(() => {
-		const progressBar = document.querySelector(".progress-bar div");
-
-		const calcWidth = Math.min((totalPrice * 100) / 75, 100);
-
-		progressBar.style.width = calcWidth + "%";
-	}, [totalPrice]);
+	const calcProgressBarWidth = Math.min((totalPrice * 100) / freeDelivery, 100);
 
 	return (
 		<div className={isCartVisible ? "cart cart--active" : "cart"}>
@@ -139,13 +112,16 @@ const Cart = ({
 			</div>
 			<div style={{ marginTop: 10, marginBottom: 10 }}>
 				{totalPrice < freeDelivery ? (
-					<p>You're € {checkDelivery()} away from Free Standard Shipping</p>
+					<p>
+						You're € {freeDelivery - totalPrice} away from Free Standard
+						Shipping
+					</p>
 				) : (
 					<p>You've qualified for Free Standard Shipping</p>
 				)}
 
 				<div className="progress-bar">
-					<div></div>
+					<div style={{ width: calcProgressBarWidth + "%" }}></div>
 				</div>
 				<p
 					style={{
@@ -155,7 +131,7 @@ const Cart = ({
 					}}
 				>
 					<span>€ 0</span>
-					<span>€ 75</span>
+					<span>€ {freeDelivery}</span>
 				</p>
 			</div>
 			{cart.length === 0 ? (
@@ -222,7 +198,7 @@ const Cart = ({
 												<div className="cart-qty-container">
 													<button
 														onClick={() =>
-															decrease(cartItem.id, cartItem.productSize)
+															decreaseItemQty(cartItem.id, cartItem.productSize)
 														}
 														disabled={cartItem.cartQty === 1}
 													>
@@ -231,7 +207,7 @@ const Cart = ({
 													<p>{cartItem.cartQty}</p>
 													<button
 														onClick={() =>
-															increase(cartItem.id, cartItem.productSize)
+															increaseItemQty(cartItem.id, cartItem.productSize)
 														}
 														disabled={cartItem.cartQty === 10}
 													>
@@ -241,7 +217,7 @@ const Cart = ({
 											</div>
 											<button
 												onClick={() =>
-													remove(cartItem.id, cartItem.productSize)
+													removeItem(cartItem.id, cartItem.productSize)
 												}
 											>
 												<img src={trashIcon} width={20} height={20} alt="" />
@@ -254,14 +230,21 @@ const Cart = ({
 						<div className="cart__discount">
 							<p style={{ marginBottom: 10 }}>Discount code?</p>
 							<form
-								style={{ marginBottom: 10 }}
-								onSubmit={handleDiscount}
+								style={
+									discountBtnActive
+										? { backgroundColor: "rgba(255, 0, 0, 0.05)" }
+										: { backgroundColor: "rgba(0, 0, 0, 0.05)" }
+								}
+								onSubmit={handleDiscountForm}
 								className="cart__discount-form"
 								action=""
 							>
 								<input type="text" placeholder="Enter code" />
 								<button type="submit">Apply</button>
 							</form>
+							{discountBtnActive && (
+								<span>The discount code is invalid or not applicable.</span>
+							)}
 						</div>
 						<strong style={{ marginBottom: 10 }}>Order summary</strong>
 						<div className="cart__summary">
@@ -272,7 +255,9 @@ const Cart = ({
 							<p style={{ display: "flex", justifyContent: "space-between" }}>
 								<span>Shipping</span>
 								<span>
-									{checkDelivery() > 0 ? `€ ${deliveryPrice}` : "Free"}
+									{freeDelivery - totalPrice > 0
+										? `€ ${deliveryPrice}`
+										: "Free"}
 								</span>
 							</p>
 							<strong
@@ -281,7 +266,7 @@ const Cart = ({
 								<span>Total</span>
 								<span>
 									€{" "}
-									{checkDelivery() > 0
+									{freeDelivery - totalPrice > 0
 										? fixedPrice(totalPrice + deliveryPrice)
 										: fixedPrice(totalPrice)}
 								</span>
@@ -289,8 +274,16 @@ const Cart = ({
 						</div>
 					</div>
 					<div className="cart__footer">
-						<button onClick={handleCheckout} className="cart__checkout-btn">
-							Checkout
+						<button
+							onClick={handleCheckoutBtnDisabled}
+							className={`cart__checkout-btn ${
+								checkoutBtnDisabled ? "cart__checkout-btn--disabled" : ""
+							}`}
+							disabled={checkoutBtnDisabled}
+						>
+							{checkoutBtnDisabled
+								? "Checkout is temporary disabled."
+								: "Checkout"}
 						</button>
 					</div>
 				</>

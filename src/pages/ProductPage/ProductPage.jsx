@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import fixedPrice from "../../utils/fixedPrice";
+// import fixedPrice from "../../utils/fixedPrice";
+import fixedPrice from "./../../utils/fixedPrice";
 import "./ProductPage.scss";
 
 const ProductPage = ({ productsData, cart, addToCart }) => {

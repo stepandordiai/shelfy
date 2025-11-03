@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import fixedPrice from "../../utils/fixedPrice";
+// import fixedPrice from "../../utils/fixedPrice";
+import fixedPrice from "./../../utils/fixedPrice";
 import trashIcon from "/icons/delete.png";
 import "./Wish.scss";
 

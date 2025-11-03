@@ -154,6 +154,7 @@
 	background: rgba(0, 0, 0, 0.05);
 	border-radius: 30px;
 	padding: 5px 5px 5px 15px;
+	margin-bottom: 10px;
 
 	input[type="text"] {
 		flex-grow: 1;
@@ -189,6 +190,11 @@
 	border-radius: 25px;
 	font-weight: 600;
 	font-size: 1.1rem;
+}
+
+.cart__checkout-btn--disabled {
+	background: #f00;
+	cursor: not-allowed;
 }
 
 @media screen and (width < 808px) {

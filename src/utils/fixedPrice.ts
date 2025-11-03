@@ -1,4 +1,4 @@
-const fixedPrice = (price) => {
+const fixedPrice = (price: number) => {
 	return Number(price).toFixed(2);
 };
 
