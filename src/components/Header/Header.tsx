@@ -1,5 +1,6 @@
 import { useState } from "react";
-import productsData from "./../../data/products-data.json";
+import productsData from "../../data/products-data.json";
+import type { Cart } from "../../interfaces/Cart";
 import { NavLink } from "react-router-dom";
 import cartIcon from "/icons/shopping-bag.png";
 import heartIcon from "/icons/heart.png";
@@ -22,7 +23,13 @@ const uniqueMensTypes = [
 	),
 ];
 
-const Header = ({ cart, wish, setIsCartVisible }) => {
+type HeaderProps = {
+	cart: Cart[];
+	wish: Cart[];
+	setIsCartVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 	const [isHeaderNavVisible, setIsHeaderNavVisible] = useState(false);
 	const [type, setType] = useState("");
 	const [menuActive, setMenuActive] = useState(false);
@@ -31,7 +38,7 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 		setMenuActive((prev) => !prev);
 	};
 
-	const handleVisibility = (props, type) => {
+	const handleVisibility = (props: boolean, type: string) => {
 		setIsHeaderNavVisible(props);
 		setType(type);
 	};
@@ -54,21 +61,21 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 						Shelfy
 					</NavLink>
 					<nav className="header__nav">
-						<NavLink
+						<div
 							onMouseEnter={() => handleVisibility(true, "women")}
 							onMouseLeave={() => handleVisibility(false, "women")}
 							className="header__nav-link header__nav-dd"
 						>
 							Women
-						</NavLink>
-						<NavLink
+						</div>
+						<div
 							onMouseEnter={() => handleVisibility(true, "men")}
 							onMouseLeave={() => handleVisibility(false, "men")}
 							className="header__nav-link header__nav-dd"
 						>
 							Men
-						</NavLink>
-						<NavLink className="header__nav-link">Accessories</NavLink>
+						</div>
+						<div className="header__nav-link">Accessories</div>
 					</nav>
 					<div className="header__right-section">
 						<NavLink className="header__wish" to="/wish">
@@ -115,7 +122,7 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 												className="header-bottom__nav-link"
 												to={`/category/${type}/mens`}
 											>
-												{type[0].toUpperCase() + type.slice(1)}
+												{(type[0] as string).toUpperCase() + type.slice(1)}
 											</NavLink>
 										);
 									})}
@@ -141,7 +148,7 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 												className="header-bottom__nav-link"
 												to={`/category/${type}/womens`}
 											>
-												{type[0].toUpperCase() + type.slice(1)}
+												{(type[0] as string).toUpperCase() + type.slice(1)}
 											</NavLink>
 										);
 									})}
@@ -175,7 +182,7 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 										className="header-bottom__nav-link"
 										to={`/category/${type}/mens`}
 									>
-										{type[0].toUpperCase() + type.slice(1)}
+										{(type[0] as string).toUpperCase() + type.slice(1)}
 									</NavLink>
 								);
 							})}
@@ -205,7 +212,7 @@ const Header = ({ cart, wish, setIsCartVisible }) => {
 										className="header-bottom__nav-link"
 										to={`/category/${type}/womens`}
 									>
-										{type[0].toUpperCase() + type.slice(1)}
+										{(type[0] as string).toUpperCase() + type.slice(1)}
 									</NavLink>
 								);
 							})}
