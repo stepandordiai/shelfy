@@ -1,5 +1,5 @@
+import productsData from "../../data/products-data.json";
 import { NavLink } from "react-router-dom";
-import productsData from "./../../data/products-data.json";
 import "./Footer.scss";
 
 const uniqueWomensTypes = [
@@ -31,7 +31,7 @@ const Footer = () => {
 						<NavLink className="footer-nav__link" to="/category/all/mens">
 							All products
 						</NavLink>
-						{uniqueMensTypes.map((type, index) => {
+						{uniqueMensTypes.map((type: string, index) => {
 							return (
 								<NavLink
 									key={index}
@@ -39,7 +39,7 @@ const Footer = () => {
 									to={`/category/${type}/mens`}
 								>
 									{/* Make the first letter Capitalize */}
-									{type[0].toUpperCase() + type.slice(1)}
+									{(type[0] as string).toUpperCase() + type.slice(1)}
 								</NavLink>
 							);
 						})}
@@ -61,7 +61,7 @@ const Footer = () => {
 										className="footer-nav__link"
 										to={`/category/${type}/womens`}
 									>
-										{type[0].toUpperCase() + type.slice(1)}
+										{(type[0] as string).toUpperCase() + type.slice(1)}
 									</NavLink>
 								);
 							})}
