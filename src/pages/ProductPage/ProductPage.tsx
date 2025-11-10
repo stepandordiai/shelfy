@@ -1,24 +1,39 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import fixedPrice from "../../utils/fixedPrice";
-import fixedPrice from "./../../utils/fixedPrice";
+import fixedPrice from "../../utils/fixedPrice";
+import type { Product } from "../../interfaces/Product";
+import type { Cart } from "../../interfaces/Cart";
 import "./ProductPage.scss";
 
-const ProductPage = ({ productsData, cart, addToCart }) => {
-	const { id } = useParams();
+type ProductPageProps = {
+	productsData: Product[];
+	cart: Cart[];
+	addToCart: (
+		product: Product,
+		chosenSize: string,
+		setNotSelectedSizeError: React.Dispatch<React.SetStateAction<boolean>>
+	) => void;
+};
+
+const ProductPage = ({ productsData, cart, addToCart }: ProductPageProps) => {
+	const { id } = useParams<{ id: string }>();
 	const [chosenSize, setChozenSize] = useState("");
 
 	const [notSelectedSizeError, setNotSelectedSizeError] = useState(false);
 
-	const product = productsData.find((productData) => productData.id == id);
+	const product = productsData.find(
+		(productData) => productData.id === Number(id)
+	);
+
+	if (!product) return;
 
 	const isInCart = cart.some(
 		(cartItem) =>
 			cartItem.id === product.id && cartItem.productSize === chosenSize
 	);
 
-	const handleChosenSize = (props) => {
-		setChozenSize((prev) => (prev = props));
+	const handleChosenSize = (props: string) => {
+		setChozenSize(props);
 		setNotSelectedSizeError(false);
 	};
 
@@ -53,7 +68,8 @@ const ProductPage = ({ productsData, cart, addToCart }) => {
 							style={
 								notSelectedSizeError
 									? { border: "1px solid var(--accent-red)" }
-									: null
+									: // TODO:
+									  undefined
 							}
 							className="product-page__sizes"
 						>
