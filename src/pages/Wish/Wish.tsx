@@ -1,11 +1,17 @@
 import { NavLink } from "react-router-dom";
 // import fixedPrice from "../../utils/fixedPrice";
-import fixedPrice from "./../../utils/fixedPrice";
+import fixedPrice from "../../utils/fixedPrice";
 import trashIcon from "/icons/delete.png";
+import type { Product } from "../../interfaces/Product";
 import "./Wish.scss";
 
-const Wish = ({ wish, setWish }) => {
-	const removeWishProduct = (id) => {
+type WishProps = {
+	wish: Product[];
+	setWish: React.Dispatch<React.SetStateAction<Product[]>>;
+};
+
+const Wish = ({ wish, setWish }: WishProps) => {
+	const removeWishProduct = (id: number) => {
 		setWish((prev) => prev.filter((product) => product.id !== id));
 	};
 
