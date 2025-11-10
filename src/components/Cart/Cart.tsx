@@ -7,26 +7,18 @@ import trashIcon from "/icons/delete.png";
 import closeIcon from "/icons/close.png";
 import "./Cart.scss";
 
-type Cart = {
-	cartQty: number;
-	id: number;
-	img: string;
-	name: string;
-	priceCents: number;
+import type { Product } from "../../interfaces/Product";
+
+interface CartInterface extends Product {
 	productSize: string;
-	sex: string;
-	sizesQty: {
-		size: string;
-		qty: number;
-	};
-	type: string;
-};
+	cartQty: number;
+}
 
 type CartProps = {
-	cart: Cart[];
-	setCart: React.Dispatch<React.SetStateAction<Cart[]>>;
-	wish: Cart[];
-	addToWish: (item: Cart) => void;
+	cart: CartInterface[];
+	setCart: React.Dispatch<React.SetStateAction<CartInterface[]>>;
+	wish: Product[];
+	addToWish: (item: Product) => void;
 	isCartVisible: boolean;
 	setIsCartVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };

@@ -7,12 +7,12 @@ import heartIconRed from "/icons/heart-red.png";
 import "./Home.scss";
 
 type HomeProps = {
-	productsData: Product[];
+	products: Product[];
 	addToWish: (item: Product) => void;
 	wish: Product[];
 };
 
-const Home = ({ productsData, addToWish, wish }: HomeProps) => {
+const Home = ({ products, addToWish, wish }: HomeProps) => {
 	return (
 		<>
 			<Helmet>
@@ -20,7 +20,7 @@ const Home = ({ productsData, addToWish, wish }: HomeProps) => {
 			</Helmet>
 			<main className="home">
 				<div className="grid">
-					{productsData.map((el, index) => {
+					{products.map((el, index) => {
 						return (
 							<NavLink
 								key={index}

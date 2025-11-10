@@ -8,15 +8,15 @@ import heartIconRed from "/icons/heart-red.png";
 import "./CategoryPage.scss";
 
 type CategoryPageProps = {
-	productsData: Product[];
+	products: Product[];
 	addToWish: (item: Product) => void;
 	wish: Product[];
 };
 
-const CategoryPage = ({ productsData, addToWish, wish }: CategoryPageProps) => {
+const CategoryPage = ({ products, addToWish, wish }: CategoryPageProps) => {
 	const { type, sex } = useParams<{ type: string; sex: string }>();
 
-	const products = productsData.filter((product) => {
+	const filteredProducts = products.filter((product) => {
 		return (product.type == type || type == "all") && product.sex == sex;
 	});
 
@@ -38,7 +38,7 @@ const CategoryPage = ({ productsData, addToWish, wish }: CategoryPageProps) => {
 					</h2>
 				</div>
 				<div className="category-page__grid">
-					{products.map((el, index) => {
+					{filteredProducts.map((el, index) => {
 						return (
 							<NavLink
 								key={index}

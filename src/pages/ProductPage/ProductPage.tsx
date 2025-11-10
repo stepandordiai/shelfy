@@ -2,12 +2,15 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import fixedPrice from "../../utils/fixedPrice";
 import type { Product } from "../../interfaces/Product";
-import type { Cart } from "../../interfaces/Cart";
 import "./ProductPage.scss";
 
+interface CartInterface extends Product {
+	productSize: string;
+}
+
 type ProductPageProps = {
-	productsData: Product[];
-	cart: Cart[];
+	products: Product[];
+	cart: CartInterface[];
 	addToCart: (
 		product: Product,
 		chosenSize: string,
@@ -17,7 +20,7 @@ type ProductPageProps = {
 };
 
 const ProductPage = ({
-	productsData,
+	products,
 	cart,
 	addToCart,
 	loadingCart,
@@ -27,9 +30,7 @@ const ProductPage = ({
 
 	const [notSelectedSizeError, setNotSelectedSizeError] = useState(false);
 
-	const product = productsData.find(
-		(productData) => productData.id === Number(id)
-	);
+	const product = products.find((product) => product.id === Number(id));
 
 	if (!product) return;
 

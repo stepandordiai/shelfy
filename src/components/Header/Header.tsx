@@ -1,6 +1,7 @@
 import { useState } from "react";
 import productsData from "../../data/products-data.json";
-import type { Cart } from "../../interfaces/Cart";
+// import type { Cart } from "../../interfaces/Cart";
+import type { Product } from "../../interfaces/Product";
 import { NavLink } from "react-router-dom";
 import cartIcon from "/icons/shopping-bag.png";
 import heartIcon from "/icons/heart.png";
@@ -24,8 +25,8 @@ const uniqueMensTypes = [
 ];
 
 type HeaderProps = {
-	cart: Cart[];
-	wish: Cart[];
+	cart: Product[];
+	wish: Product[];
 	setIsCartVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
 

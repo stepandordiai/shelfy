@@ -10,19 +10,34 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ScrollToTop from "./utils/ScrollToTop";
 import Login from "./pages/Login/Login";
 import Footer from "./components/Footer/Footer";
+import type { Product } from "./interfaces/Product";
 import "./scss/App.scss";
+
+const products = productsData as Product[];
+
+interface CartInterface extends Product {
+	productSize: string;
+	cartQty: number;
+}
 
 function App() {
 	const [loadingCart, setLoadingCart] = useState(false);
-	const [cart, setCart] = useState([]);
-	const [wish, setWish] = useState([]);
+	const [cart, setCart] = useState<CartInterface[]>([]);
+	const [wish, setWish] = useState<Product[]>([]);
 	const [isCartVisible, setIsCartVisible] = useState(false);
 
-	async function addToCart(item, size, setNotSelectedSizeError) {
+	async function addToCart(
+		item: Product,
+		size: string,
+		setNotSelectedSizeError: React.Dispatch<React.SetStateAction<boolean>>
+	) {
 		if (!size) {
 			setNotSelectedSizeError(true);
 			// TODO: Not a react-friendly way
-			document.querySelector(".product-page__sizes").scrollIntoView({
+			const sizes = document.querySelector(
+				".product-page__sizes"
+			) as HTMLDivElement;
+			sizes.scrollIntoView({
 				behavior: "smooth",
 				// TODO:
 				block: "center",
@@ -43,7 +58,7 @@ function App() {
 		}
 	}
 
-	function addToWish(item) {
+	function addToWish(item: Product) {
 		const exists = wish.some((i) => i.id === item.id);
 
 		if (exists) {
@@ -64,11 +79,7 @@ function App() {
 				<Route
 					path="/"
 					element={
-						<Home
-							productsData={productsData}
-							addToWish={addToWish}
-							wish={wish}
-						/>
+						<Home products={products} addToWish={addToWish} wish={wish} />
 					}
 				/>
 				<Route path="/wish" element={<Wish wish={wish} setWish={setWish} />} />
@@ -77,7 +88,7 @@ function App() {
 					path="/product-page/:id"
 					element={
 						<ProductPage
-							productsData={productsData}
+							products={products}
 							cart={cart}
 							addToCart={addToCart}
 							loadingCart={loadingCart}
@@ -88,7 +99,7 @@ function App() {
 					path="/category/:type/:sex"
 					element={
 						<CategoryPage
-							productsData={productsData}
+							products={products}
 							addToWish={addToWish}
 							wish={wish}
 						/>
