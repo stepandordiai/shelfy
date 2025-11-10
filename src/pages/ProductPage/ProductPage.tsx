@@ -13,9 +13,15 @@ type ProductPageProps = {
 		chosenSize: string,
 		setNotSelectedSizeError: React.Dispatch<React.SetStateAction<boolean>>
 	) => void;
+	loadingCart: boolean;
 };
 
-const ProductPage = ({ productsData, cart, addToCart }: ProductPageProps) => {
+const ProductPage = ({
+	productsData,
+	cart,
+	addToCart,
+	loadingCart,
+}: ProductPageProps) => {
 	const { id } = useParams<{ id: string }>();
 	const [chosenSize, setChozenSize] = useState("");
 
@@ -114,7 +120,11 @@ const ProductPage = ({ productsData, cart, addToCart }: ProductPageProps) => {
 							addToCart(product, chosenSize, setNotSelectedSizeError)
 						}
 					>
-						{isInCart ? "In cart" : "Add to Cart"}
+						{isInCart
+							? "In cart"
+							: loadingCart
+							? "Adding to cart..."
+							: "Add to cart"}
 					</button>
 				</div>
 			</main>

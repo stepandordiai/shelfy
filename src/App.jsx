@@ -13,11 +13,12 @@ import Footer from "./components/Footer/Footer";
 import "./scss/App.scss";
 
 function App() {
+	const [loadingCart, setLoadingCart] = useState(false);
 	const [cart, setCart] = useState([]);
 	const [wish, setWish] = useState([]);
 	const [isCartVisible, setIsCartVisible] = useState(false);
 
-	function addToCart(item, size, setNotSelectedSizeError) {
+	async function addToCart(item, size, setNotSelectedSizeError) {
 		if (!size) {
 			setNotSelectedSizeError(true);
 			// TODO: Not a react-friendly way
@@ -34,10 +35,11 @@ function App() {
 		if (exists) {
 			setIsCartVisible(true);
 		} else {
+			setLoadingCart(true);
+			await new Promise((resolve) => setTimeout(resolve, 1500));
 			setCart((prev) => [...prev, { ...item, cartQty: 1, productSize: size }]);
-			setTimeout(() => {
-				setIsCartVisible(true);
-			}, 1500);
+			setIsCartVisible(true);
+			setLoadingCart(false);
 		}
 	}
 
@@ -78,6 +80,7 @@ function App() {
 							productsData={productsData}
 							cart={cart}
 							addToCart={addToCart}
+							loadingCart={loadingCart}
 						/>
 					}
 				/>
