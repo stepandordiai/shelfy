@@ -1,12 +1,18 @@
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
-// import fixedPrice from "../../utils/fixedPrice";
-import fixedPrice from "./../../utils/fixedPrice";
+import fixedPrice from "../../utils/fixedPrice";
+import type { Product } from "../../interfaces/Product";
 import heartIcon from "/icons/heart.png";
 import heartIconRed from "/icons/heart-red.png";
 import "./Home.scss";
 
-const Home = ({ productsData, addToWish, wish }) => {
+type HomeProps = {
+	productsData: Product[];
+	addToWish: (item: Product) => void;
+	wish: Product[];
+};
+
+const Home = ({ productsData, addToWish, wish }: HomeProps) => {
 	return (
 		<>
 			<Helmet>
