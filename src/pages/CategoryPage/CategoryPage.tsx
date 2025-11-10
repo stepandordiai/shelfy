@@ -1,13 +1,20 @@
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import fixedPrice from "./../../utils/fixedPrice";
+import fixedPrice from "../../utils/fixedPrice";
+import type { Product } from "../../interfaces/Product";
 import heartIcon from "/icons/heart.png";
 import heartIconRed from "/icons/heart-red.png";
 import "./CategoryPage.scss";
 
-const CategoryPage = ({ productsData, addToWish, wish }) => {
-	const { type, sex } = useParams();
+type CategoryPageProps = {
+	productsData: Product[];
+	addToWish: (item: Product) => void;
+	wish: Product[];
+};
+
+const CategoryPage = ({ productsData, addToWish, wish }: CategoryPageProps) => {
+	const { type, sex } = useParams<{ type: string; sex: string }>();
 
 	const products = productsData.filter((product) => {
 		return (product.type == type || type == "all") && product.sex == sex;
@@ -20,11 +27,14 @@ const CategoryPage = ({ productsData, addToWish, wish }) => {
 			</Helmet>
 			<main className="category-page">
 				<div className="category-page__title-container">
-					<h1>{sex.slice(0, 1).toUpperCase() + sex.slice(1)}</h1>
+					{/* TODO: */}
+					<h1>{sex ? sex?.charAt(0).toUpperCase() + sex.slice(1) : ""}</h1>
 					<h2>
 						{type === "all"
 							? "All products"
-							: type.slice(0, 1).toUpperCase() + type.slice(1)}
+							: type
+							? type?.slice(0, 1).toUpperCase() + type.slice(1)
+							: ""}
 					</h2>
 				</div>
 				<div className="category-page__grid">
