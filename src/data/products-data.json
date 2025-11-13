@@ -1,5 +1,21 @@
 [
 	{
+		"id": 17,
+		"name": "Sweatshirt",
+		"img": "https://api.newyorker.de/csp/images/image/public/e9717ff38ffc8cfab48249154d911291.png?res=full-hd",
+		"priceCents": 1149,
+		"sizesQty": [
+			{ "size": "XS", "qty": 0 },
+			{ "size": "S", "qty": 0 },
+			{ "size": "M", "qty": 0 },
+			{ "size": "L", "qty": 0 },
+			{ "size": "XL", "qty": 1 },
+			{ "size": "XXL", "qty": 0 }
+		],
+		"type": "sweatshirts",
+		"sex": "mens"
+	},
+	{
 		"id": 1,
 		"name": "Short-sleeved workout T-shirt",
 		"img": "https://cdn.media.amplience.net/i/primark/991107776002_05?$articleimages-regulardesktop$&fmt=auto",
