@@ -1,5 +1,21 @@
 [
 	{
+		"id": 18,
+		"name": "JACK & JONES Black Hooded Puffer Jacket",
+		"img": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V28185s8.jpg?im=Resize,width=750",
+		"priceCents": 3999,
+		"sizesQty": [
+			{ "size": "XS", "qty": 0 },
+			{ "size": "S", "qty": 0 },
+			{ "size": "M", "qty": 0 },
+			{ "size": "L", "qty": 0 },
+			{ "size": "XL", "qty": 1 },
+			{ "size": "XXL", "qty": 0 }
+		],
+		"type": "jackets",
+		"sex": "mens"
+	},
+	{
 		"id": 17,
 		"name": "Sweatshirt",
 		"img": "https://api.newyorker.de/csp/images/image/public/e9717ff38ffc8cfab48249154d911291.png?res=full-hd",
