@@ -1,6 +1,5 @@
 import { useState } from "react";
 import productsData from "../../data/products-data.json";
-// import type { Cart } from "../../interfaces/Cart";
 import type { Product } from "../../interfaces/Product";
 import { NavLink } from "react-router-dom";
 import cartIcon from "/icons/shopping-bag.png";
@@ -35,9 +34,7 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 	const [type, setType] = useState("");
 	const [menuActive, setMenuActive] = useState(false);
 
-	const handleMenuActive = () => {
-		setMenuActive((prev) => !prev);
-	};
+	const toggleMenuBtn = () => setMenuActive((prev) => !prev);
 
 	const handleVisibility = (props: boolean, type: string) => {
 		setIsHeaderNavVisible(props);
@@ -48,9 +45,11 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 		<>
 			<header className="header">
 				<div className="header__top">
+					{/* menu-btn */}
 					<button
-						onClick={handleMenuActive}
+						onClick={toggleMenuBtn}
 						className={`burger-btn ${menuActive ? "burger-btn--active" : ""}`}
+						aria-label={menuActive ? "Close menu" : "Open menu"}
 					>
 						<span
 							className={`burger-btn__center-line ${
