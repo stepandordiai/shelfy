@@ -2,6 +2,7 @@ import { useState } from "react";
 import productsData from "../../data/products-data.json";
 import type { Product } from "../../interfaces/Product";
 import { NavLink } from "react-router-dom";
+import classNames from "classnames";
 import cartIcon from "/icons/shopping-bag.png";
 import heartIcon from "/icons/heart.png";
 import userIcon from "/icons/user.png";
@@ -48,13 +49,15 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 					{/* menu-btn */}
 					<button
 						onClick={toggleMenuBtn}
-						className={`burger-btn ${menuActive ? "burger-btn--active" : ""}`}
+						className={classNames("burger-btn", {
+							"burger-btn--active": menuActive,
+						})}
 						aria-label={menuActive ? "Close menu" : "Open menu"}
 					>
 						<span
-							className={`burger-btn__center-line ${
-								menuActive ? "burger-btn__center-line--active" : ""
-							}`}
+							className={classNames("burger-btn__center-line", {
+								"burger-btn__center-line--active": menuActive,
+							})}
 						></span>
 					</button>
 					<NavLink className="header__logo" to="/">
@@ -98,9 +101,9 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 				<div
 					onMouseEnter={() => handleVisibility(true, type)}
 					onMouseLeave={() => handleVisibility(false, type)}
-					className={`header__bottom ${
-						isHeaderNavVisible ? "header__bottom--active" : ""
-					}`}
+					className={classNames("header__bottom", {
+						"header__bottom--active": isHeaderNavVisible,
+					})}
 				>
 					<div className="header__bottom-container">
 						{type === "men" && (
@@ -158,7 +161,11 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 					</div>
 				</div>
 			</header>
-			<div className={`menu ${menuActive ? "menu--active" : ""}`}>
+			<div
+				className={classNames("menu", {
+					"menu--active": menuActive,
+				})}
+			>
 				<div className="menu-container">
 					<button className="menu__btn">Mens</button>
 					<div className="menu__dd">
@@ -221,9 +228,9 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 				</div>
 			</div>
 			<div
-				className={`main-curtain ${
-					isHeaderNavVisible ? "main-curtain--active" : ""
-				}`}
+				className={classNames("main-curtain", {
+					"main-curtain--active": isHeaderNavVisible,
+				})}
 			></div>
 		</>
 	);

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import fixedPrice from "../../utils/fixedPrice";
+import type { Product } from "../../interfaces/Product";
+import classNames from "classnames";
 import heartIcon from "/icons/heart.png";
 import heartIconRed from "/icons/heart-red.png";
 import trashIcon from "/icons/delete.png";
 import closeIcon from "/icons/close.png";
 import "./Cart.scss";
-
-import type { Product } from "../../interfaces/Product";
 
 interface CartInterface extends Product {
 	productSize: string;
@@ -92,14 +92,18 @@ const Cart = ({
 	const calcProgressBarWidth = Math.min((totalPrice * 100) / freeDelivery, 100);
 
 	return (
-		<div className={isCartVisible ? "cart cart--active" : "cart"}>
+		<div
+			className={classNames("cart", {
+				"cart--active": isCartVisible,
+			})}
+		>
 			<div className="cart__header">
 				<p className="cart__title">Cart</p>
 				<button
 					onClick={() => setIsCartVisible(false)}
 					className="cart__header-close-btn"
 				>
-					<img src={closeIcon} width={25} alt="" />
+					<img src={closeIcon} width={25} height={25} alt="" />
 				</button>
 			</div>
 			<div style={{ marginTop: 10, marginBottom: 10 }}>
@@ -268,9 +272,9 @@ const Cart = ({
 					<div className="cart__footer">
 						<button
 							onClick={handleCheckoutBtnDisabled}
-							className={`cart__checkout-btn ${
-								checkoutBtnDisabled ? "cart__checkout-btn--disabled" : ""
-							}`}
+							className={classNames("cart__checkout-btn", {
+								"cart__checkout-btn--disabled": checkoutBtnDisabled,
+							})}
 							disabled={checkoutBtnDisabled}
 						>
 							{checkoutBtnDisabled
