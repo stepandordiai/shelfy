@@ -27,10 +27,16 @@ const uniqueMensTypes = [
 type HeaderProps = {
 	cart: Product[];
 	wish: Product[];
+	isCartVisible: boolean;
 	setIsCartVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
+const Header = ({
+	cart,
+	wish,
+	isCartVisible,
+	setIsCartVisible,
+}: HeaderProps) => {
 	const [isHeaderNavVisible, setIsHeaderNavVisible] = useState(false);
 	const [type, setType] = useState("");
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -94,9 +100,17 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 						<button
 							onClick={() => setIsCartVisible(true)}
 							className="header__cart"
+							aria-label={
+								cart.length === 0
+									? "Shopping cart, empty"
+									: cart.length === 1
+									? `Shopping cart, ${cart.length} item`
+									: `Shopping cart, ${cart.length} items`
+							}
+							aria-expanded={isCartVisible}
 						>
 							<img width={20} height={20} src={cartIcon} alt="" />
-							{cart.length > 0 && <span>{cart.length}</span>}
+							{cart.length > 0 && <span aria-hidden="true">{cart.length}</span>}
 						</button>
 					</div>
 				</div>

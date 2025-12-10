@@ -11,6 +11,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import Login from "./pages/Login/Login";
 import Footer from "./components/Footer/Footer";
 import type { Product } from "./interfaces/Product";
+import classNames from "classnames";
 import "./scss/App.scss";
 
 const products = productsData as Product[];
@@ -70,11 +71,26 @@ function App() {
 	return (
 		<Router>
 			<ScrollToTop />
+			<Cart
+				cart={cart}
+				setCart={setCart}
+				wish={wish}
+				addToWish={addToWish}
+				isCartVisible={isCartVisible}
+				setIsCartVisible={setIsCartVisible}
+			/>
 			<div
 				onClick={() => setIsCartVisible(false)}
-				className={isCartVisible ? "curtain curtain--active" : "curtain"}
+				className={classNames("curtain", {
+					"curtain--active": isCartVisible,
+				})}
 			></div>
-			<Header cart={cart} wish={wish} setIsCartVisible={setIsCartVisible} />
+			<Header
+				cart={cart}
+				wish={wish}
+				isCartVisible={isCartVisible}
+				setIsCartVisible={setIsCartVisible}
+			/>
 			<Routes>
 				<Route
 					path="/"
@@ -106,14 +122,7 @@ function App() {
 					}
 				/>
 			</Routes>
-			<Cart
-				cart={cart}
-				setCart={setCart}
-				wish={wish}
-				addToWish={addToWish}
-				isCartVisible={isCartVisible}
-				setIsCartVisible={setIsCartVisible}
-			/>
+
 			<Footer />
 		</Router>
 	);
