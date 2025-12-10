@@ -33,9 +33,9 @@ type HeaderProps = {
 const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 	const [isHeaderNavVisible, setIsHeaderNavVisible] = useState(false);
 	const [type, setType] = useState("");
-	const [menuActive, setMenuActive] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
 
-	const toggleMenuBtn = () => setMenuActive((prev) => !prev);
+	const toggleMenu = (): void => setMenuOpen((prev: boolean) => !prev);
 
 	const handleVisibility = (props: boolean, type: string) => {
 		setIsHeaderNavVisible(props);
@@ -48,15 +48,17 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 				<div className="header__top">
 					{/* menu-btn */}
 					<button
-						onClick={toggleMenuBtn}
+						onClick={toggleMenu}
 						className={classNames("burger-btn", {
-							"burger-btn--active": menuActive,
+							"burger-btn--active": menuOpen,
 						})}
-						aria-label={menuActive ? "Close menu" : "Open menu"}
+						aria-label={menuOpen ? "Close menu" : "Open menu"}
+						aria-expanded={menuOpen}
+						aria-controls="menu"
 					>
 						<span
 							className={classNames("burger-btn__center-line", {
-								"burger-btn__center-line--active": menuActive,
+								"burger-btn__center-line--active": menuOpen,
 							})}
 						></span>
 					</button>
@@ -161,18 +163,21 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 					</div>
 				</div>
 			</header>
-			<div
+			{/* menu */}
+			<nav
 				className={classNames("menu", {
-					"menu--active": menuActive,
+					"menu--active": menuOpen,
 				})}
+				id="menu"
+				aria-hidden={!menuOpen}
 			>
 				<div className="menu-container">
-					<button className="menu__btn">Mens</button>
+					<p className="menu__btn">Mens</p>
 					<div className="menu__dd">
 						<div className="menu__dd-inner">
 							<NavLink
 								onClick={() => {
-									setMenuActive(false);
+									setMenuOpen(false);
 								}}
 								className="header-bottom__nav-link"
 								to="/category/all/mens"
@@ -184,7 +189,7 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 									<NavLink
 										key={index}
 										onClick={() => {
-											setMenuActive(false);
+											setMenuOpen(false);
 										}}
 										className="header-bottom__nav-link"
 										to={`/category/${type}/mens`}
@@ -197,12 +202,12 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 					</div>
 				</div>
 				<div className="menu-container">
-					<button className="menu__btn">Womens</button>
+					<p className="menu__btn">Womens</p>
 					<div className="menu__dd">
 						<div className="menu__dd-inner">
 							<NavLink
 								onClick={() => {
-									setMenuActive(false);
+									setMenuOpen(false);
 								}}
 								className="header-bottom__nav-link"
 								to="/category/all/womens"
@@ -214,7 +219,7 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 									<NavLink
 										key={index}
 										onClick={() => {
-											setMenuActive(false);
+											setMenuOpen(false);
 										}}
 										className="header-bottom__nav-link"
 										to={`/category/${type}/womens`}
@@ -226,7 +231,7 @@ const Header = ({ cart, wish, setIsCartVisible }: HeaderProps) => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</nav>
 			<div
 				className={classNames("main-curtain", {
 					"main-curtain--active": isHeaderNavVisible,
