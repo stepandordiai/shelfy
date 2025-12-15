@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import productsData from "../../data/products-data.json";
 import type { Product } from "../../interfaces/Product";
 import { NavLink } from "react-router-dom";
@@ -41,7 +41,33 @@ const Header = ({
 	const [type, setType] = useState("");
 	const [menuOpen, setMenuOpen] = useState(false);
 
+	const menu = useRef(null);
+	const menuBtn = useRef(null);
+
 	const toggleMenu = (): void => setMenuOpen((prev: boolean) => !prev);
+
+	// TODO: LEARN THIS
+	useEffect(() => {
+		if (!menuOpen) return;
+
+		const closeMenu = (e: MouseEvent | TouchEvent): void => {
+			const menuCurrent = menu.current as HTMLElement | null;
+			const menuBtnCurrent = menuBtn.current as HTMLButtonElement | null;
+
+			if (!(e.target instanceof Node)) return;
+
+			if (
+				!menuCurrent?.contains(e.target) &&
+				!menuBtnCurrent?.contains(e.target)
+			) {
+				setMenuOpen(false);
+			}
+		};
+
+		document.addEventListener("click", closeMenu);
+
+		return () => document.removeEventListener("click", closeMenu);
+	}, [menuOpen]);
 
 	const handleVisibility = (props: boolean, type: string) => {
 		setIsHeaderNavVisible(props);
@@ -54,6 +80,7 @@ const Header = ({
 				<div className="header__top">
 					{/* menu-btn */}
 					<button
+						ref={menuBtn}
 						onClick={toggleMenu}
 						className={classNames("burger-btn", {
 							"burger-btn--active": menuOpen,
@@ -179,6 +206,7 @@ const Header = ({
 			</header>
 			{/* menu */}
 			<nav
+				ref={menu}
 				className={classNames("menu", {
 					"menu--active": menuOpen,
 				})}
