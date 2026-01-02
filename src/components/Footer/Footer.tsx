@@ -70,7 +70,9 @@ const Footer = () => {
 				</div>
 			</nav>
 			<div className="footer-bottom">
-				<p>&copy; 2025 Shelfy. All rights reserved.</p>
+				<p>
+					&copy; 2025-{new Date().getFullYear()} Shelfy. All rights reserved.
+				</p>
 				<p>
 					Made with love by{" "}
 					<a href="https://stepandordiai.netlify.app/" target="_blank">
